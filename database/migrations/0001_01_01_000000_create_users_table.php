@@ -14,10 +14,43 @@ return new class extends Migration
         Schema::create('users', function (Blueprint $table) {
             $table->id();
             $table->string('email')->unique();
-            $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
+            $table->timestamp('email_verified_at')->nullable();
             $table->rememberToken();
             $table->timestamps();
+        });
+
+         Schema::create('mac', function (Blueprint $table) {
+            $table->id();
+            $table->string('name')->unique();
+            $table->string('image');
+            $table->string('kategorija');
+            $table->string('screenSize');
+            $table->string('screenType');
+            $table->string('cpu');
+            $table->string('gpu');
+            $table->string('ram');
+            $table->string('storage');
+            $table->string('color');
+            $table->boolean('arYra');
+            $table->decimal('oldprice',10,2)->nullable();
+            $table->integer('planMonths')->default(24);
+            $table->float('pricePlan');
+        });
+
+        Schema::create('iphone', function (Blueprint $table) {
+            $table->id();
+            $table->string('name')->unique();
+            $table->string('image');
+            $table->string('kategorija');
+            $table->string('screenSize');
+            $table->string('storage');
+            $table->string('color');
+            $table->decimal('price',4,2);
+            $table->decimal('oldprice',10,2)->nullable();
+            $table->integer('planMonths')->default(24);
+            $table->float('pricePlan');
+            $table->boolean('arYra');
         });
 
         Schema::create('password_reset_tokens', function (Blueprint $table) {
