@@ -60,15 +60,15 @@ shopping_bag
             </div>
     
     
-        <div class='bg-gray-300 w-[60%] text-black mt-10   rounded-lg'>
+        <div class=' w-[60%] text-black mt-10   rounded-lg'>
             <div class='flex ml-5  mt-5  items-center'>
-                <p>Iphone</p>
+                <p class=''>Iphone</p>
             </div>
 
             <hr class=" border ml-5 mt-5 mb-10 mr-5 border-black ">
 
             <div class='flex ml-5  gap-5 mb-5 items-center'>
-                <select class='p-2 border border-black rounded-sm'>
+                <select class='p-2 border border-gray-300 hover:border-black rounded-sm outline-none'>
                     <option>Pigiausi</option>
                     <option>Seniausi</option>
                     <option>Naujausi</option>
@@ -77,7 +77,7 @@ shopping_bag
                 </select>
             
 
-                <select class='p-2 border border-black rounded-sm'>
+                <select class='p-2 border border-gray-300 hover:border-black  rounded-sm outline-none'>
                     <option>12</option>
                     <option>24</option>
                     <option>36</option>
@@ -86,12 +86,20 @@ shopping_bag
                 </select>
             </div>
 
-            <div class='grid grid-cols-4 bg-teal-200 p-5 gap-y-5 gap-x-5'>
-                <div class='bg-orange-300 aspect-square'></div>
-                <div class='bg-orange-300 aspect-square'></div>
-                <div class='bg-orange-300 aspect-square'></div>
-                <div class='bg-orange-300 aspect-square'></div>
-                <div class='bg-orange-300 aspect-square'></div>
+            <div class='grid grid-cols-4 bg-white p-5 gap-y-5 gap-x-5'>
+                
+                <div class='aspect-square border border-gray-300 hover:border-black  rounded-sm flex flex-col items-center pt-10'>
+                    <img  class='h-50 w-50 'src=/images/iphone17e.jpg>
+                        <div class='mt-5'>
+                            <p>name</p>
+                            <p>status</p>
+                            <p>price</p>
+                        </div>
+                        <div class='mt-5'>
+                            <button>add</button>
+                        </div>
+                </div>
+              
             </div>
         </div>
     </div>
