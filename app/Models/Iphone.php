@@ -6,26 +6,55 @@ use Illuminate\Database\Eloquent\Model;
 
 class Iphone extends Model
 {
-    public function getAll()
+
+    protected $fillable = [
+        'name',
+        'image',
+        'kategorija',
+        'screenSize',
+        'storage',
+        'color',
+        'price',
+        'oldprice',
+        'arYra',
+    ];
+
+
+    public static function getAll()
     {
         return self::all();
     }
-
-    public function getKategorija()
+     public static function getName($name)
     {
-        return self::where();
+        return self::where('name', $name)->first();
     }
-    public function getScreenSize()
+    public function getKategorija($kategorija)
     {
-        
+        return self::find($kategorija);
     }
-    public function getStorage()
+    public function getScreenSize($screenSize)
     {
-        
+        return self::find($screenSize);
     }
-    public function getColor()
+    public function getStorage($storage)
     {
-        
+        return self::find($storage);
+    }
+    public function getColor($color)
+    {
+        return self::find($color);
+    }
+    public function getPrice($price)
+    {
+        return self::find($price);
+    }
+    public function getOldPrice($oldprice)
+    {
+        return self::find($oldprice);
+    }
+    public function getArYra($arYra)
+    {
+        return self::find($arYra);
     }
    
 }

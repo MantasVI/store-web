@@ -20,7 +20,7 @@ return new class extends Migration
             $table->timestamps();
         });
 
-         Schema::create('mac', function (Blueprint $table) {
+         Schema::create('macbooks', function (Blueprint $table) {
             $table->id();
             $table->string('name')->unique();
             $table->string('image');
@@ -32,13 +32,13 @@ return new class extends Migration
             $table->string('ram');
             $table->string('storage');
             $table->string('color');
-            $table->boolean('arYra');
+            $table->decimal('price',10,2);
             $table->decimal('oldprice',10,2)->nullable();
-            $table->integer('planMonths')->default(24);
-            $table->float('pricePlan');
+            $table->boolean('arYra');
+            $table->timestamps();
         });
 
-        Schema::create('iphone', function (Blueprint $table) {
+        Schema::create('iphones', function (Blueprint $table) {
             $table->id();
             $table->string('name')->unique();
             $table->string('image');
@@ -46,11 +46,10 @@ return new class extends Migration
             $table->string('screenSize');
             $table->string('storage');
             $table->string('color');
-            $table->decimal('price',4,2);
+            $table->decimal('price',10,2);
             $table->decimal('oldprice',10,2)->nullable();
-            $table->integer('planMonths')->default(24);
-            $table->float('pricePlan');
             $table->boolean('arYra');
+            $table->timestamps();
         });
 
         Schema::create('password_reset_tokens', function (Blueprint $table) {

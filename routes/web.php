@@ -2,18 +2,17 @@
 
 use App\Http\Controllers\AuthController;
 use Illuminate\Support\Facades\Route;
-
+use App\Http\Controllers\MacController;
+use App\Http\Controllers\IphoneController;
 Route::get('/', function () {
     return view('home');
 });
 
-Route::get('/Mac', function () {
-    return view('Mac');
-});
+Route::get('/mac', [MacController::class,'index']);
+Route::get('/iphone',[IphoneController::class,'index']);  
+Route::get('/iphone/{name}',[IphoneController::class,'single']);  
+Route::get('/mac/{name}',[MacController::class,'single']); 
 
-Route::get('/Iphone', function () {
-    return view('Iphone');
-});
 
 Route::get('/signup',[AuthController::class,'signup']);
 

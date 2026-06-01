@@ -13,8 +13,8 @@
             <a class='hover:text-blue-400 transition-transform duration-300' href='/#'>icon</a>
         </div>
         <div class=''>
-            <a class='mr-5 hover:text-blue-400 transition-transform duration-300' href='/Mac'>mac</a>
-            <a class='ml-5 hover:text-blue-400 transition-transform duration-300' href='/Iphone'>iphone</a>
+            <a class='mr-5 hover:text-blue-400 transition-transform duration-300' href='/mac'>mac</a>
+            <a class='ml-5 hover:text-blue-400 transition-transform duration-300' href='/iphone'>iphone</a>
         </div>
         <div class=''>
             @guest
