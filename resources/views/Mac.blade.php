@@ -29,8 +29,7 @@
         </div>
     </header>
    
-        
-    <div class='flex flex-row justify-center gap-10 p-5'>
+       <div class='flex flex-row justify-center gap-10 p-5'>
             <div class='w-[15%] text-black mt-10  bg-white border-2 border-black rounded-lg self-start wrap'>
                 
                 <div class='flex ml-5  mt-5 flex-col '>
@@ -44,7 +43,7 @@
                     <p class='text-xl'>Kategorija</p>
                     @foreach($macbook->unique('kategorija') as $mac)
                     <div class='flex items-center gap-2'>
-                    <input type='checkbox' id='{{$mac->kategorija}}'><label for='{{$mac->kategorija}}'>{{$mac->kategorija}}  </label>     
+                    <input type='checkbox' class='checkbox-kategorija' value='{{$mac->kategorija}}' id='{{$mac->kategorija}}'><label class='checkboxValue' for='{{$mac->kategorija}}'>{{$mac->kategorija}}  </label>     
                     </div>
                     @endforeach
                 </div>
@@ -53,7 +52,7 @@
                     <p>Talpa</p>
                     @foreach($macbook->unique('storage') as $mac)
                     <div class='flex items-center gap-2'>
-                    <input type='checkbox' id='{{$mac->storage}}'><label for='{{$mac->storage}}'>{{$mac->storage}}  </label>     
+                    <input type='checkbox' class='checkbox-storage'  value='{{$mac->storage}}' id='{{$mac->storage}}'><label for='{{$mac->storage}}'>{{$mac->storage}}  </label>     
                     </div>
                     @endforeach
                 </div>
@@ -62,7 +61,7 @@
                     <p>Spalva</p>
                     @foreach($macbook->unique('color')   as $mac)
                     <div class='flex items-center gap-2'>
-                    <input type='checkbox' id='{{$mac->color}}'><label for='{{$mac->color}}'>{{$mac->color}}  </label>     
+                    <input type='checkbox' class='checkbox-color'  value='{{$mac->color}}' id='{{$mac->color}}'><label for='{{$mac->color}}'>{{$mac->color}}  </label>     
                     </div>
                     @endforeach
                 </div>
@@ -71,7 +70,7 @@
                     <p>Sandelyje</p>
                     @foreach($macbook->unique('arYra') as $mac)
                     <div class='flex items-center gap-2'>
-                    <input type='checkbox' id='{{$mac->arYra}}'><label for='{{$mac->arYra}}'>{{$mac->arYra ? 'Taip' : 'Ne'}}  </label>     
+                    <input type='checkbox' class='checkbox-arYra'  value="{{$mac->arYra ? 'Taip' : 'Ne'}}" id="{{$mac->arYra ? 'Taip' : 'Ne'}}"><label for='{{$mac->arYra}}'>{{$mac->arYra ? 'Taip' : 'Ne'}}  </label>     
                     </div>
                     @endforeach
                 </div>
@@ -85,51 +84,51 @@
             
         <div class=' w-[60%] text-black mt-10   rounded-lg'>
             <div class='flex ml-5  mt-5  items-center'>
-                <p class=''>Macbook</p>
+                <p class=''>Iphone</p>
             </div>
 
             <hr class=" border ml-5 mt-5 mb-10 mr-5 border-black ">
 
             <div class='flex ml-5  gap-5 mb-5 items-center'>
-                <select class='p-2 border border-gray-300 hover:border-black rounded-sm outline-none'>
-                    <option>Pigiausi</option>
-                    <option>Seniausi</option>
-                    <option>Naujausi</option>
-                    <option>Brangiausi</option>
-                    <option>Populiarus</option>
+                <select class=' tipas p-2 border border-gray-300 hover:border-black rounded-sm outline-none'>
+                    <option value='Pigus'>Pigiausi</option>
+                    <option value='Brangus'>Brangiausi</option>
+                    <option value='default' selected>Default</option>
                 </select>
             
 
-                <select class='p-2 border border-gray-300 hover:border-black  rounded-sm outline-none'>
-                    <option>12</option>
-                    <option>24</option>
-                    <option>36</option>
-                    <option>Visi</option>
+                <select class='quant p-2 border border-gray-300 hover:border-black  rounded-sm outline-none'>
+                    <option value='12' >12</option>
+                    <option value='24'>24</option>
+                    <option value='36'>36</option>
+                    <option value='all' selected>Visi</option>
                     
                 </select>
             </div>
 
-            <div class='grid grid-cols-4 bg-white p-5 gap-y-5 gap-x-5'>
+            <div class='grid  grid-cols-4 bg-white p-5 gap-y-5 gap-x-5'>
                 @foreach($macbook as $mac)
-                <a href='/mac/{{$mac->name}}'> <div class='aspect-square border border-gray-300 hover:border-black  rounded-sm flex flex-col items-center pt-10'>
-                    
+                 <a class='a' href='/mac/{{$mac->name}}'> <div class=' aspect-square border border-gray-300 hover:border-black  rounded-sm flex flex-col items-center pt-10'>
+                  
                     <img  class='h-50 w-50 'src="{{$mac->image}}">
                         <div class='mt-5'>
-                            <p class='text-xl text-center'>{{$mac->name}}</p>
-                            <p class='text-lg text-center' style='color: {{$mac->arYra ? "green" : "red"}}'>{{$mac->arYra ? 'Taip':'Ne'}}</p>
-                            <p class='text-xl text-center'>{{$mac->price}}</p>
+                            <div class='flex gap-2'>
+                             <p class='kategorija text-xl text-center'>{{$mac->kategorija}}</p> <p class='storage text-xl text-center'>{{$mac->storage}}</p> <p class='color text-xl text-center'>{{$mac->color}}</p> 
+                            </div>
+                            <p class='status text-lg text-center' style='color: {{$mac->arYra ? "green" : "red"}}'>{{$mac->arYra ? 'Taip':'Ne'}}</p>
+                            <p class='price text-xl text-center'>{{$mac->price}}</p>
                         </div>
-                        <div class='mt-7 hover:text-blue-400'>
-                            <button class=' bg-black pl-10 pr-10 pt-5 pb-5 rounded-sm text-white'><span class="material-symbols-outlined hover:text-blue-400">shopping_cart</span></button>
+                        <div class='mt-7 '>
+                            <button class='add bg-black hover:bg-blue-600 transition-colors duration-300 pl-10 pr-10 pt-5 pb-5 rounded-sm text-white'><span class="material-symbols-outlined hover:text-blue-400">shopping_cart</span></button>
                         </div>
-                        
-                </div></a>
+                   
+                </div> </a>
               @endforeach
             </div>
         </div>
     </div>
 
-        
+        <script src='/main.js'></script>
   
 
     

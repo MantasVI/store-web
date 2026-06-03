@@ -46,7 +46,7 @@
                     <p class='text-xl'>Kategorija</p>
                     @foreach($iphones->unique('kategorija') as $iphone)
                     <div class='flex items-center gap-2'>
-                    <input type='checkbox' id='{{$iphone->kategorija}}'><label for='{{$iphone->kategorija}}'>{{$iphone->kategorija}}  </label>     
+                    <input type='checkbox' class='checkbox-kategorija' value='{{$iphone->kategorija}}' id='{{$iphone->kategorija}}'><label class='checkboxValue' for='{{$iphone->kategorija}}'>{{$iphone->kategorija}}  </label>     
                     </div>
                     @endforeach
                 </div>
@@ -55,7 +55,7 @@
                     <p>Talpa</p>
                     @foreach($iphones->unique('storage') as $iphone)
                     <div class='flex items-center gap-2'>
-                    <input type='checkbox' id='{{$iphone->storage}}'><label for='{{$iphone->storage}}'>{{$iphone->storage}}  </label>     
+                    <input type='checkbox' class='checkbox-storage'  value='{{$iphone->storage}}' id='{{$iphone->storage}}'><label for='{{$iphone->storage}}'>{{$iphone->storage}}  </label>     
                     </div>
                     @endforeach
                 </div>
@@ -64,7 +64,7 @@
                     <p>Spalva</p>
                     @foreach($iphones->unique('color')   as $iphone)
                     <div class='flex items-center gap-2'>
-                    <input type='checkbox' id='{{$iphone->color}}'><label for='{{$iphone->color}}'>{{$iphone->color}}  </label>     
+                    <input type='checkbox' class='checkbox-color'  value='{{$iphone->color}}' id='{{$iphone->color}}'><label for='{{$iphone->color}}'>{{$iphone->color}}  </label>     
                     </div>
                     @endforeach
                 </div>
@@ -73,7 +73,7 @@
                     <p>Sandelyje</p>
                     @foreach($iphones->unique('arYra') as $iphone)
                     <div class='flex items-center gap-2'>
-                    <input type='checkbox' id='{{$iphone->arYra}}'><label for='{{$iphone->arYra}}'>{{$iphone->arYra ? 'Taip' : 'Ne'}}  </label>     
+                    <input type='checkbox' class='checkbox-arYra'  value="{{$iphone->arYra ? 'Taip' : 'Ne'}}" id="{{$iphone->arYra ? 'Taip' : 'Ne'}}"><label for='{{$iphone->arYra}}'>{{$iphone->arYra ? 'Taip' : 'Ne'}}  </label>     
                     </div>
                     @endforeach
                 </div>
@@ -93,33 +93,33 @@
             <hr class=" border ml-5 mt-5 mb-10 mr-5 border-black ">
 
             <div class='flex ml-5  gap-5 mb-5 items-center'>
-                <select class='p-2 border border-gray-300 hover:border-black rounded-sm outline-none'>
-                    <option>Pigiausi</option>
-                    <option>Seniausi</option>
-                    <option>Naujausi</option>
-                    <option>Brangiausi</option>
-                    <option>Populiarus</option>
+                <select class=' tipas p-2 border border-gray-300 hover:border-black rounded-sm outline-none'>
+                    <option value='Pigus'>Pigiausi</option>
+                    <option value='Brangus'>Brangiausi</option>
+                    <option value='default' selected>Default</option>
                 </select>
             
 
-                <select class='p-2 border border-gray-300 hover:border-black  rounded-sm outline-none'>
-                    <option>12</option>
-                    <option>24</option>
-                    <option>36</option>
-                    <option>Visi</option>
+                <select class='quant p-2 border border-gray-300 hover:border-black  rounded-sm outline-none'>
+                    <option value='12' >12</option>
+                    <option value='24'>24</option>
+                    <option value='36'>36</option>
+                    <option value='all' selected>Visi</option>
                     
                 </select>
             </div>
 
-            <div class='grid grid-cols-4 bg-white p-5 gap-y-5 gap-x-5'>
+            <div class='grid  grid-cols-4 bg-white p-5 gap-y-5 gap-x-5'>
                 @foreach($iphones as $iphone)
-                 <a href='/iphone/{{$iphone->name}}'> <div class='aspect-square border border-gray-300 hover:border-black  rounded-sm flex flex-col items-center pt-10'>
+                 <a class='a' href='/iphone/{{$iphone->name}}'> <div class=' aspect-square border border-gray-300 hover:border-black  rounded-sm flex flex-col items-center pt-10'>
                   
                     <img  class='h-50 w-50 'src="{{$iphone->image}}">
                         <div class='mt-5'>
-                            <p class='text-xl text-center'>{{$iphone->name}}</p>
-                            <p class='text-lg text-center' style='color: {{$iphone->arYra ? "green" : "red"}}'>{{$iphone->arYra ? 'Taip':'Ne'}}</p>
-                            <p class='text-xl text-center'>{{$iphone->price}}</p>
+                            <div class='flex gap-2'>
+                             <p class='kategorija text-xl text-center'>{{$iphone->kategorija}}</p> <p class='storage text-xl text-center'>{{$iphone->storage}}</p> <p class='color text-xl text-center'>{{$iphone->color}}</p> 
+                            </div>
+                            <p class='status text-lg text-center' style='color: {{$iphone->arYra ? "green" : "red"}}'>{{$iphone->arYra ? 'Taip':'Ne'}}</p>
+                            <p class='price text-xl text-center'>{{$iphone->price}}</p>
                         </div>
                         <div class='mt-7 '>
                             <button class='add bg-black hover:bg-blue-600 transition-colors duration-300 pl-10 pr-10 pt-5 pb-5 rounded-sm text-white'><span class="material-symbols-outlined hover:text-blue-400">shopping_cart</span></button>
@@ -131,7 +131,7 @@
         </div>
     </div>
 
-        
+        <script src='/main.js'></script>
   
 
     
