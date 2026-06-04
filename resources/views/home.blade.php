@@ -25,7 +25,7 @@
 account_circle
 </span></a>
             @endauth
-            <a class='ml-5 hover:text-blue-400 transition-transform duration-300' href='#'><span class="material-symbols-outlined">
+            <a class='ml-5 hover:text-blue-400 transition-transform duration-300' href='/cart'><span class="material-symbols-outlined">
 shopping_bag
 </span></a>
         </div>

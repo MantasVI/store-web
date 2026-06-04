@@ -28,6 +28,10 @@ class Iphone extends Model
     {
         return self::where('name', $name)->first();
     }
+     public static function getId($id)
+    {
+        return self::where('id',$id)->first();
+    }
     public function getKategorija($kategorija)
     {
         return self::find($kategorija);

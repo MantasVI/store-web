@@ -20,9 +20,9 @@ class Macbook extends Model
     {
         return self::where('name',$name)->first();
     }
-    public static function getTipas($name)
+    public static function getId($id)
     {
-        return self::where('name',$name);
+        return self::where('id',$id)->first();
     }
     public function getScreenSize($screenSize)
     {

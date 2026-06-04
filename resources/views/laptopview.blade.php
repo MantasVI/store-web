@@ -38,7 +38,7 @@
                 <p class='text-6xl '>{{$macbook->name}}</p>
             </div>
              <div style="color: {{$macbook->arYra ? 'green' : 'red'}}">
-                <p>{{$macbook->arYra ? 'Taip' : 'Ne'}}</p>
+                <p>{{$macbook->arYra ? 'Yes' : 'No'}}</p>
             </div>
             <div>
                 <p class='text-4xl '>Storage</p>

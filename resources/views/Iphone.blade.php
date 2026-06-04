@@ -73,7 +73,7 @@
                     <p>Sandelyje</p>
                     @foreach($iphones->unique('arYra') as $iphone)
                     <div class='flex items-center gap-2'>
-                    <input type='checkbox' class='checkbox-arYra'  value="{{$iphone->arYra ? 'Taip' : 'Ne'}}" id="{{$iphone->arYra ? 'Taip' : 'Ne'}}"><label for='{{$iphone->arYra}}'>{{$iphone->arYra ? 'Taip' : 'Ne'}}  </label>     
+                    <input type='checkbox' class='checkbox-arYra'  value="{{$iphone->arYra ? 'Yes' : 'No'}}" id="{{$iphone->arYra ? 'Yes' : 'No'}}"><label for='{{$iphone->arYra}}'>{{$iphone->arYra ? 'Taip' : 'Ne'}}  </label>     
                     </div>
                     @endforeach
                 </div>
@@ -118,7 +118,7 @@
                             <div class='flex gap-2'>
                              <p class='kategorija text-xl text-center'>{{$iphone->kategorija}}</p> <p class='storage text-xl text-center'>{{$iphone->storage}}</p> <p class='color text-xl text-center'>{{$iphone->color}}</p> 
                             </div>
-                            <p class='status text-lg text-center' style='color: {{$iphone->arYra ? "green" : "red"}}'>{{$iphone->arYra ? 'Taip':'Ne'}}</p>
+                            <p class='status text-lg text-center' style='color: {{$iphone->arYra ? "green" : "red"}}'>{{$iphone->arYra ? 'Yes':'No'}}</p>
                             <p class='price text-xl text-center'>{{$iphone->price}}</p>
                         </div>
                         <div class='mt-7 '>

@@ -16,18 +16,19 @@ class IphoneController extends Controller
     public function single($name)
     {
         $x = Iphone::getName($name);
+       
         return view('phoneview',['iphone'=>$x]);
 
     }
-
-    public function add(Request $request)
+    public function cart()
     {
-       
-        $cart = session()->get('cart', []);
-        $cart[]= $request->id;
+        return view('cart');
+    }
+    public function add(Request $request,$id)
+    {   $y =  $request->kiekis;
+        $x = Iphone::getID($id);
+        $bendrasuma=  $x->price * $y;
         
-        session()->put('cart', $cart);
-
-        return redirect('/iphone');
+       return view('cart',['item'=> $x, 'kiekis' => $y,'bendras' => $bendrasuma]);
     }
 }

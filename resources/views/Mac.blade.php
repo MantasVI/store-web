@@ -25,7 +25,7 @@
 
 
             @endauth
-            <a class='ml-5 hover:text-blue-400 transition-transform duration-300' href='#'><span class="material-symbols-outlined">shopping_bag</span></a>
+            <a class='ml-5 hover:text-blue-400 transition-transform duration-300' href='/cart'><span class="material-symbols-outlined">shopping_bag</span></a>
         </div>
     </header>
    
@@ -70,7 +70,7 @@
                     <p>Sandelyje</p>
                     @foreach($macbook->unique('arYra') as $mac)
                     <div class='flex items-center gap-2'>
-                    <input type='checkbox' class='checkbox-arYra'  value="{{$mac->arYra ? 'Taip' : 'Ne'}}" id="{{$mac->arYra ? 'Taip' : 'Ne'}}"><label for='{{$mac->arYra}}'>{{$mac->arYra ? 'Taip' : 'Ne'}}  </label>     
+                    <input type='checkbox' class='checkbox-arYra'  value="{{$mac->arYra ? 'Yes' : 'No'}}" id="{{$mac->arYra ? 'Yes' : 'No'}}"><label for='{{$mac->arYra}}'>{{$mac->arYra ? 'Yes' : 'No'}}  </label>     
                     </div>
                     @endforeach
                 </div>
@@ -115,7 +115,7 @@
                             <div class='flex gap-2'>
                              <p class='kategorija text-xl text-center'>{{$mac->kategorija}}</p> <p class='storage text-xl text-center'>{{$mac->storage}}</p> <p class='color text-xl text-center'>{{$mac->color}}</p> 
                             </div>
-                            <p class='status text-lg text-center' style='color: {{$mac->arYra ? "green" : "red"}}'>{{$mac->arYra ? 'Taip':'Ne'}}</p>
+                            <p class='status text-lg text-center' style='color: {{$mac->arYra ? "green" : "red"}}'>{{$mac->arYra ? 'Yes':'No'}}</p>
                             <p class='price text-xl text-center'>{{$mac->price}}</p>
                         </div>
                         <div class='mt-7 '>

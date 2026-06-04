@@ -31,40 +31,44 @@
 
         </div>
     </header>
-    <div class='flex justify-center items-center text-black mt-20 gap-20'>
-        <img class='p-5 border-2 border-gray-300 mt-20' src='{{asset($iphone->image)}}'>
-        <div class='flex flex-col gap-10 mt-20 text-3xl'>
+    <div class='flex justify-center items-center text-black  gap-20 p-20'>
+        <img class='p-2 border-3 border-gray-300 mt-20' src='{{asset($iphone->image)}}'>
+        <div class='flex flex-col gap-5 mt-20 text-2xl'>
             <div >
-                <p class='text-6xl '>{{$iphone->name}}</p>
+                <p class='text-3xl '>{{$iphone->name}}</p>
             </div>
              <div style="color: {{$iphone->arYra ? 'green' : 'red'}}">
                 <p>{{$iphone->arYra ? 'Taip' : 'Ne'}}</p>
             </div>
             <div>
-                <p class='text-4xl '>Storage</p>
-                <p class='mt-5 p-10 border rounded-md w-fit'>{{$iphone->storage}}</p>
+                <p >Storage</p>
+                
+                <p class='mt-5 p-5 border rounded-md w-fit'>{{$iphone->storage}}</p>
             </div>
             <div>
-                <p class='text-4xl '>Color</p>
-                <p class='mt-5 p-10 border rounded-md w-fit'>{{$iphone->color}}</p>
+                <p >Color</p>
+                <p class='mt-5 p-5 border rounded-md w-fit'>{{$iphone->color}}</p>
             </div>
              <div>
-                <p class='text-4xl '>Price</p>
-                <p class='mt-5 p-20 border rounded-md w-fit'>{{$iphone->price}}Eur</p>
+                <p >Price</p>
+                <p class='price mt-5 p-10 border rounded-md w-fit' name="kaina">{{$iphone->price}}</p>
             </div>
             @if($iphone->arYra)
-            <div class='mt-7  flex  gap-y-10'>
-                
-                <div class='flex  gap-5 border-1 rounded-sm w-fit'>
-                        <button class='remove pl-10 pr-10 pt-5 pb-5  text-black'>-</button>
-                        <input class='counter w-10 text-center outline-none ' type='text' value='1'>
-                        <button class='add pl-10 pr-10 pt-5 pb-5  text-black'>+</button> 
-                       
+            <form method="POST" action="/iphone/add/{{ $iphone->id }}">
+                @csrf
+                <div class='mt-7  flex  gap-y-10'>
+                    
+                    <div class='flex  gap-5 border-1 rounded-sm w-fit'>
+                            <button type='button' class='remove pl-10 pr-10 pt-5 pb-5  text-black'>-</button>
+                            <input class='counter w-10 text-center outline-none ' type='text' name="kiekis" value='1'>
+                            <button type="button" class='add pl-10 pr-10 pt-5 pb-5  text-black'>+</button> 
+                        
+                    </div>
+                    <div class='flex  gap-5 w-fit'>
+                    <button type="submit" class='hover:text-blue-400 ml-5 bg-black pl-10 pr-10 pt-5 pb-5 rounded-sm text-white'>Add to Cart</button>
+                    </div>
                 </div>
-                <div class='flex  gap-5 w-fit'>
-                 <button class='hover:text-blue-400 ml-5 bg-black pl-10 pr-10 pt-5 pb-5 rounded-sm text-white'>Add to Cart</button>
-                </div>
-            </div>
+            </form>
             @else
             <div class='mt-7  flex  gap-y-10'>
                 <p>This product is currently out of stock. Please check back later.</p>    
@@ -72,5 +76,6 @@
             @endif
         </div>
     </div>
+    <script src="/add.js"></script>
 </body>
 </html>
