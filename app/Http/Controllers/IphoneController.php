@@ -19,4 +19,15 @@ class IphoneController extends Controller
         return view('phoneview',['iphone'=>$x]);
 
     }
+
+    public function add(Request $request)
+    {
+       
+        $cart = session()->get('cart', []);
+        $cart[]= $request->id;
+        
+        session()->put('cart', $cart);
+
+        return redirect('/iphone');
+    }
 }
