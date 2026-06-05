@@ -44,6 +44,6 @@ shopping_bag
     </main>
 
 
-
+<footer class='bg-gray-300 fixed bottom-0 left-0 right-0 p-10'> </footer>
 </body>
 </html>

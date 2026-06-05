@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
      <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200&icon_names=account_circle,shopping_bag,shopping_cart" />
-    @vite(['resources/css/app.css', 'resources/js/app.js'])
+    @vite(['resources/css/app.css', 'resources/js/iphone.js'])
     <title>Iphone telefonai</title>
 </head>
 <body class='italic text-white font-bold'>
@@ -44,9 +44,9 @@
 
                 <div class='flex flex-col ml-5  mb-5 gap-y-5 '>
                     <p class='text-xl'>Kategorija</p>
-                    @foreach($iphones->unique('kategorija') as $iphone)
+                    @foreach($iphones->unique('kategorija')->sortByDesc('kategorija') as $iphone)
                     <div class='flex items-center gap-2'>
-                    <input type='checkbox' class='checkbox-kategorija' value='{{$iphone->kategorija}}' id='{{$iphone->kategorija}}'><label class='checkboxValue' for='{{$iphone->kategorija}}'>{{$iphone->kategorija}}  </label>     
+                    <input type='checkbox' class='checkbox-kategorija' value='{{$iphone->kategorija}}'><label>{{$iphone->kategorija}}  </label>     
                     </div>
                     @endforeach
                 </div>
@@ -55,7 +55,7 @@
                     <p>Talpa</p>
                     @foreach($iphones->unique('storage') as $iphone)
                     <div class='flex items-center gap-2'>
-                    <input type='checkbox' class='checkbox-storage'  value='{{$iphone->storage}}' id='{{$iphone->storage}}'><label for='{{$iphone->storage}}'>{{$iphone->storage}}  </label>     
+                    <input type='checkbox' class='checkbox-storage'  value='{{$iphone->storage}}'><label>{{$iphone->storage}}  </label>     
                     </div>
                     @endforeach
                 </div>
@@ -64,7 +64,7 @@
                     <p>Spalva</p>
                     @foreach($iphones->unique('color')   as $iphone)
                     <div class='flex items-center gap-2'>
-                    <input type='checkbox' class='checkbox-color'  value='{{$iphone->color}}' id='{{$iphone->color}}'><label for='{{$iphone->color}}'>{{$iphone->color}}  </label>     
+                    <input type='checkbox' class='checkbox-color'  value='{{$iphone->color}}'><label>{{$iphone->color}}  </label>     
                     </div>
                     @endforeach
                 </div>
@@ -73,7 +73,7 @@
                     <p>Sandelyje</p>
                     @foreach($iphones->unique('arYra') as $iphone)
                     <div class='flex items-center gap-2'>
-                    <input type='checkbox' class='checkbox-arYra'  value="{{$iphone->arYra ? 'Yes' : 'No'}}" id="{{$iphone->arYra ? 'Yes' : 'No'}}"><label for='{{$iphone->arYra}}'>{{$iphone->arYra ? 'Taip' : 'Ne'}}  </label>     
+                    <input type='checkbox' class='checkbox-arYra'  value="{{$iphone->arYra ? 'Yes' : 'No'}}" ><label>{{$iphone->arYra ? 'Taip' : 'Ne'}}  </label>     
                     </div>
                     @endforeach
                 </div>
@@ -96,7 +96,7 @@
                 <select class=' tipas p-2 border border-gray-300 hover:border-black rounded-sm outline-none'>
                     <option value='Pigus'>Pigiausi</option>
                     <option value='Brangus'>Brangiausi</option>
-                    <option value='default' selected>Default</option>
+                    <option value='default' selected>-</option>
                 </select>
             
 
@@ -111,18 +111,18 @@
 
             <div class='grid  grid-cols-4 bg-white p-5 gap-y-5 gap-x-5'>
                 @foreach($iphones as $iphone)
-                 <a class='a' href='/iphone/{{$iphone->name}}'> <div class=' aspect-square border border-gray-300 hover:border-black  rounded-sm flex flex-col items-center pt-10'>
+                 <a class='a' href='/iphone/{{$iphone->name}}'> <div class=' aspect-square border border-gray-300 hover:border-black  rounded-sm flex flex-col items-center p-15 mt-15'>
                   
-                    <img  class='h-50 w-50 'src="{{$iphone->image}}">
+                    <img  class='h-[350px] w-[350px] 'src="{{$iphone->image}}">
                         <div class='mt-5'>
                             <div class='flex gap-2'>
                              <p class='kategorija text-xl text-center'>{{$iphone->kategorija}}</p> <p class='storage text-xl text-center'>{{$iphone->storage}}</p> <p class='color text-xl text-center'>{{$iphone->color}}</p> 
                             </div>
                             <p class='status text-lg text-center' style='color: {{$iphone->arYra ? "green" : "red"}}'>{{$iphone->arYra ? 'Yes':'No'}}</p>
-                            <p class='price text-xl text-center'>{{$iphone->price}}</p>
+                            <p class='price text-xl text-center'>{{$iphone->price}} €</p>
                         </div>
                         <div class='mt-7 '>
-                            <button class='add bg-black hover:bg-blue-600 transition-colors duration-300 pl-10 pr-10 pt-5 pb-5 rounded-sm text-white'><span class="material-symbols-outlined hover:text-blue-400">shopping_cart</span></button>
+                            <button class='add bg-black hover:bg-blue-600 transition-colors duration-300 pl-10 pr-10 pt-5 pb-5 rounded-sm text-white'><span class="material-symbols-outlined ">shopping_cart</span></button>
                         </div>
                    
                 </div> </a>
@@ -131,7 +131,7 @@
         </div>
     </div>
 
-        <script src='/main.js'></script>
+
   
 
     

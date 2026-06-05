@@ -15,7 +15,16 @@ class MacController extends Controller
     public function single($name)
      {
         $x = Macbook::getName($name);
-        $y = Macbook::getTipas($name);
-        return view('laptopview',['macbook' => $x,'tipas' => $y]);
+
+        return view('laptopview',['macbook' => $x]);
+     }
+     public function add($id,Request $request)
+     {
+        $x = Macbook::getId($id);
+        $kiekis = $request->kiekis;
+        $bendras = $x->price * $kiekis;
+        return view('cart',['item' => $x , 'kiekis' => $kiekis ,'bendras' => $bendras ]);
+
+
      }
 }

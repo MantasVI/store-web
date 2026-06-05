@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
      <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200&icon_names=account_circle,shopping_bag,shopping_cart" />
  
-     @vite(['resources/css/app.css', 'resources/js/app.js'])
+     @vite(['resources/css/app.css', 'resources/js/add.js'])
     <title>{{$iphone->name}}</title>
 </head>
 <body class='italic text-white font-bold'>
@@ -31,51 +31,54 @@
 
         </div>
     </header>
-    <div class='flex justify-center items-center text-black  gap-20 p-20'>
-        <img class='p-2 border-3 border-gray-300 mt-20' src='{{asset($iphone->image)}}'>
-        <div class='flex flex-col gap-5 mt-20 text-2xl'>
-            <div >
-                <p class='text-3xl '>{{$iphone->name}}</p>
-            </div>
-             <div style="color: {{$iphone->arYra ? 'green' : 'red'}}">
-                <p>{{$iphone->arYra ? 'Taip' : 'Ne'}}</p>
-            </div>
-            <div>
-                <p >Storage</p>
-                
-                <p class='mt-5 p-5 border rounded-md w-fit'>{{$iphone->storage}}</p>
-            </div>
-            <div>
-                <p >Color</p>
-                <p class='mt-5 p-5 border rounded-md w-fit'>{{$iphone->color}}</p>
-            </div>
-             <div>
-                <p >Price</p>
-                <p class='price mt-5 p-10 border rounded-md w-fit' name="kaina">{{$iphone->price}}</p>
-            </div>
-            @if($iphone->arYra)
-            <form method="POST" action="/iphone/add/{{ $iphone->id }}">
-                @csrf
-                <div class='mt-7  flex  gap-y-10'>
-                    
-                    <div class='flex  gap-5 border-1 rounded-sm w-fit'>
-                            <button type='button' class='remove pl-10 pr-10 pt-5 pb-5  text-black'>-</button>
-                            <input class='counter w-10 text-center outline-none ' type='text' name="kiekis" value='1'>
-                            <button type="button" class='add pl-10 pr-10 pt-5 pb-5  text-black'>+</button> 
-                        
-                    </div>
-                    <div class='flex  gap-5 w-fit'>
-                    <button type="submit" class='hover:text-blue-400 ml-5 bg-black pl-10 pr-10 pt-5 pb-5 rounded-sm text-white'>Add to Cart</button>
-                    </div>
+    <div class='flex border rounded-md justify-center items-center mt-30'>
+        <div class='flex justify-center items-center text-black  gap-20 p-20 border'>
+            <img class='p-2 border-3 border-gray-300 mt-20' src='{{asset($iphone->image)}}'>
+            <div class='flex flex-col gap-5 mt-20 text-2xl'>
+                <div >
+                    <p class='text-3xl '>{{$iphone->name}}</p>
                 </div>
-            </form>
-            @else
-            <div class='mt-7  flex  gap-y-10'>
-                <p>This product is currently out of stock. Please check back later.</p>    
+                <div style="color: {{$iphone->arYra ? 'green' : 'red'}}">
+                    <p>{{$iphone->arYra ? 'Taip' : 'Ne'}}</p>
+                </div>
+                <div>
+                    <p >Storage</p>
+                    
+                    <p class='mt-5 p-5 border rounded-md w-fit'>{{$iphone->storage}}</p>
+                </div>
+                <div>
+                    <p >Color</p>
+                    <p class='mt-5 p-5 border rounded-md w-fit'>{{$iphone->color}}</p>
+                </div>
+                <div>
+                    <p >Price</p>
+                    <p class='price mt-5 p-10 border rounded-md w-fit' name="kaina">{{$iphone->price}} €</p>
+                </div>
+                @if($iphone->arYra)
+                <form method="POST" action="/iphone/add/{{ $iphone->id }}">
+                    @csrf
+                    <div class='mt-7  flex  gap-y-10'>
+                        
+                        <div class='flex  gap-5 border-1 rounded-sm w-fit'>
+                                <button type='button' class='remove pl-10 pr-10 pt-5 pb-5  text-black'>-</button>
+                                <input class='counter w-10 text-center outline-none ' type='text' name="kiekis" value='1'>
+                                <button type="button" class='add pl-10 pr-10 pt-5 pb-5  text-black'>+</button> 
+                            
+                        </div>
+                        <div class='flex  gap-5 w-fit'>
+                        <button type="submit" class='hover:text-blue-400 ml-5 bg-black pl-10 pr-10 pt-5 pb-5 rounded-sm text-white'>Add to Cart</button>
+                        </div>
+                    </div>
+                </form>
+                @else
+                <div class='mt-7  flex  gap-y-10'>
+                    <p>This product is currently out of stock. Please check back later.</p>    
+                </div>
+                @endif
             </div>
-            @endif
         </div>
     </div>
-    <script src="/add.js"></script>
+    <footer class='bg-gray-300 fixed bottom-0 left-0 right-0 p-10'> </footer>
+    
 </body>
 </html>

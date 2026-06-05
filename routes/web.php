@@ -13,7 +13,9 @@ Route::get('/iphone',[IphoneController::class,'index']);
 Route::get('/iphone/{name}',[IphoneController::class,'single']);  
 Route::get('/mac/{name}',[MacController::class,'single']); 
 Route::get('/cart',[IphoneController::class,'cart']);
+
 Route::post('/iphone/add/{id}',[IphoneController::class,'add']);
+Route::post('/mac/add/{id}',[MacController::class,'add']);
 
 Route::get('/signup',[AuthController::class,'signup']);
 

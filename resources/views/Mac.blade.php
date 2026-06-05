@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
      <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200&icon_names=account_circle,shopping_bag,shopping_cart" />
-    @vite(['resources/css/app.css', 'resources/js/app.js'])
+    @vite(['resources/css/app.css', 'resources/js/mac.js'])
     <title>Iphone telefonai</title>
 </head>
 <body class='italic text-white font-bold'>
@@ -41,36 +41,76 @@
 
                 <div class='flex flex-col ml-5  mb-5 gap-y-5 '>
                     <p class='text-xl'>Kategorija</p>
-                    @foreach($macbook->unique('kategorija') as $mac)
+                    @foreach($macbook->unique('kategorija')->sortByDesc('kategorija') as $mac)
                     <div class='flex items-center gap-2'>
-                    <input type='checkbox' class='checkbox-kategorija' value='{{$mac->kategorija}}' id='{{$mac->kategorija}}'><label class='checkboxValue' for='{{$mac->kategorija}}'>{{$mac->kategorija}}  </label>     
+                    <input type='checkbox' class='checkbox-kategorija' value='{{$mac->kategorija}}'><label>{{$mac->kategorija}}  </label>     
                     </div>
                     @endforeach
                 </div>
 
+                <div class='flex flex-col ml-5  mb-5 gap-y-5 '>
+                    <p class='text-xl'>Screen Size</p>
+                    @foreach($macbook->where('screenSize','!=','N/A')->unique('screenSize')->sortByDesc('screenSize') as $mac)
+                    <div class='flex items-center gap-2'>
+                    <input type='checkbox' class='checkbox-screenSize' value='{{$mac->screenSize}}' ><label>{{$mac->screenSize}}  </label>     
+                    </div>
+                    @endforeach
+                </div>
+                <div class='flex flex-col ml-5  mb-5 gap-y-5 '>
+                    <p class='text-xl'>Screen Type</p>
+                    @foreach($macbook->where('screenType','!=','N/A')->unique('screenType')->sortByDesc('screenType') as $mac)
+                    <div class='flex items-center gap-2'>
+                    <input type='checkbox' class='checkbox-screenType' value='{{$mac->screenType}}' ><label>{{$mac->screenType}}  </label>     
+                    </div>
+                    @endforeach
+                </div>
+                <div class='flex flex-col ml-5  mb-5 gap-y-5 '>
+                    <p class='text-xl'>Cpu</p>
+                    @foreach($macbook->unique('cpu')->sortByDesc('cpu') as $mac)
+                    <div class='flex items-center gap-2'>
+                    <input type='checkbox' class='checkbox-cpu' value='{{$mac->cpu}}' ><label>{{$mac->cpu}}  </label>     
+                    </div>
+                    @endforeach
+                </div>
+                <div class='flex flex-col ml-5  mb-5 gap-y-5 '>
+                    <p class='text-xl'>Gpu</p>
+                    @foreach($macbook->unique('gpu')->sortByDesc('gpu') as $mac)
+                    <div class='flex items-center gap-2'>
+                    <input type='checkbox' class='checkbox-gpu' value='{{$mac->gpu}}' ><label>{{$mac->gpu}}  </label>     
+                    </div>
+                    @endforeach
+                </div>
+                 <div class='flex flex-col ml-5  mb-5 gap-y-5 '>
+                    <p class='text-xl'>Ram</p>
+                    @foreach($macbook->unique('ram') as $mac)
+                    <div class='flex items-center gap-2'>
+                    <input type='checkbox' class='checkbox-ram' value='{{$mac->ram}}'><label>{{$mac->ram}}  </label>     
+                    </div>
+                    @endforeach
+                </div>
                 <div class='flex flex-col ml-5  mb-5 gap-y-5'>
-                    <p>Talpa</p>
+                    <p>Storage</p>
                     @foreach($macbook->unique('storage') as $mac)
                     <div class='flex items-center gap-2'>
-                    <input type='checkbox' class='checkbox-storage'  value='{{$mac->storage}}' id='{{$mac->storage}}'><label for='{{$mac->storage}}'>{{$mac->storage}}  </label>     
+                    <input type='checkbox' class='checkbox-storage'  value='{{$mac->storage}}'> <label>{{$mac->storage}}  </label>     
                     </div>
                     @endforeach
                 </div>
 
                 <div class='flex flex-col ml-5  mb-5 gap-y-5'>
-                    <p>Spalva</p>
-                    @foreach($macbook->unique('color')   as $mac)
+                    <p>Color</p>
+                    @foreach($macbook->unique('color')->sortByDesc('color')   as $mac)
                     <div class='flex items-center gap-2'>
-                    <input type='checkbox' class='checkbox-color'  value='{{$mac->color}}' id='{{$mac->color}}'><label for='{{$mac->color}}'>{{$mac->color}}  </label>     
+                    <input type='checkbox' class='checkbox-color'  value='{{$mac->color}}' ><label>{{$mac->color}}  </label>     
                     </div>
                     @endforeach
                 </div>
 
                 <div class='flex flex-col ml-5  mb-5 gap-y-5'>
-                    <p>Sandelyje</p>
+                    <p>In Storage</p>
                     @foreach($macbook->unique('arYra') as $mac)
                     <div class='flex items-center gap-2'>
-                    <input type='checkbox' class='checkbox-arYra'  value="{{$mac->arYra ? 'Yes' : 'No'}}" id="{{$mac->arYra ? 'Yes' : 'No'}}"><label for='{{$mac->arYra}}'>{{$mac->arYra ? 'Yes' : 'No'}}  </label>     
+                    <input type='checkbox' class='checkbox-arYra'  value="{{$mac->arYra ? 'Yes' : 'No'}}"><label>{{$mac->arYra ? 'Yes' : 'No'}}  </label>     
                     </div>
                     @endforeach
                 </div>
@@ -93,7 +133,7 @@
                 <select class=' tipas p-2 border border-gray-300 hover:border-black rounded-sm outline-none'>
                     <option value='Pigus'>Pigiausi</option>
                     <option value='Brangus'>Brangiausi</option>
-                    <option value='default' selected>Default</option>
+                    <option value='default' selected>-</option>
                 </select>
             
 
@@ -108,15 +148,22 @@
 
             <div class='grid  grid-cols-4 bg-white p-5 gap-y-5 gap-x-5'>
                 @foreach($macbook as $mac)
-                 <a class='a' href='/mac/{{$mac->name}}'> <div class=' aspect-square border border-gray-300 hover:border-black  rounded-sm flex flex-col items-center pt-10'>
+                 <a class='a' href='/mac/{{$mac->name}}'> <div class=' aspect-square border border-gray-300 hover:border-black  rounded-sm flex flex-col items-center p-15 mt-15'>
                   
                     <img  class='h-50 w-50 'src="{{$mac->image}}">
                         <div class='mt-5'>
-                            <div class='flex gap-2'>
-                             <p class='kategorija text-xl text-center'>{{$mac->kategorija}}</p> <p class='storage text-xl text-center'>{{$mac->storage}}</p> <p class='color text-xl text-center'>{{$mac->color}}</p> 
+                            <div class='flex gap-2 flex-wrap justify-center'>
+                             <p class='kategorija text-xl text-center'>{{$mac->kategorija}}</p>
+                             <p class='screenSize text-xl text-center'>{{$mac->screenSize}}</p> 
+                             <p class='screenType text-xl text-center'>{{$mac->screenType}}</p> 
+                             <p class='storage text-xl text-center'>{{$mac->storage}}</p>
+                              <p class='color text-xl text-center'>{{$mac->color}}</p> 
+                              <p class='cpu text-xl text-center'>{{$mac->cpu}}</p>
+                               <p class='gpu text-xl text-center'>{{$mac->gpu}}</p> 
+                               <p class='ram text-xl text-center'>{{$mac->ram}}</p>
                             </div>
-                            <p class='status text-lg text-center' style='color: {{$mac->arYra ? "green" : "red"}}'>{{$mac->arYra ? 'Yes':'No'}}</p>
-                            <p class='price text-xl text-center'>{{$mac->price}}</p>
+                            <p class='status text-lg text-center mt-5' style='color: {{$mac->arYra ? "green" : "red"}}'>{{$mac->arYra ? 'Yes':'No'}}</p>
+                            <p class='price text-xl text-center'>{{$mac->price}} €</p>
                         </div>
                         <div class='mt-7 '>
                             <button class='add bg-black hover:bg-blue-600 transition-colors duration-300 pl-10 pr-10 pt-5 pb-5 rounded-sm text-white'><span class="material-symbols-outlined hover:text-blue-400">shopping_cart</span></button>
@@ -128,10 +175,10 @@
         </div>
     </div>
 
-        <script src='/main.js'></script>
+
   
 
-    
+    <script src='mac.js'></script>
 
 
 

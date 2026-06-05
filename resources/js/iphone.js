@@ -50,5 +50,5 @@ function sortas() {
 
 quantity.addEventListener('change', applyAll);
 tipas.addEventListener('change', sortas);
-document.querySelectorAll('.checkbox-kategorija, .checkbox-storage, .checkbox-color, .checkbox-arYra')
-    .forEach(cb => cb.addEventListener('change', applyAll));
+document.querySelectorAll('.checkbox-kategorija, .checkbox-storage, .checkbox-color, .checkbox-arYra').forEach(cb => cb.addEventListener('change', applyAll));
+    
