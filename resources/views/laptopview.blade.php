@@ -8,7 +8,7 @@
      @vite(['resources/css/app.css', 'resources/js/add.js'])
     <title>{{$macbook->name}}</title>
 </head>
-<body class='italic text-white font-bold'>
+<body class='italic text-white font-bold relative'>
    <header class='flex justify-between items-center bg-[#292323] p-5'> 
         <div class='text-xl'>
             <a class='hover:text-blue-400 transition-transform duration-300' href='/#'>icon</a>
@@ -31,9 +31,9 @@
 
         </div>
     </header>
-     <div class='flex justify-center items-center mt-25'>
-        <div class='flex justify-center rounded-lg items-center text-black mt-20 gap-20 border p-15'>
-            <img class='p-5 border rounded-lg  border-gray-300 mt-20' src='{{asset($macbook->image)}}'>
+     <div class='flex justify-center items-center'>
+        <div class='flex justify-center rounded-lg items-center text-black  gap-10 border p-5 mt-20 mb-40'>
+            <img class='p-5 border rounded-lg  border-gray-300 mt-10' src='{{asset($macbook->image)}}'>
             <div class='flex flex-col gap-5 mt-20 text-2xl'>
                 <div >
                     <p class='text-3xl '>{{$macbook->name}}</p>
@@ -51,7 +51,7 @@
                 </div>
                 <div>
                     <p >Price</p>
-                    <p class='mt-5 p-5 border rounded-md w-fit'>{{$macbook->price}}€</p>
+                    <p class='price mt-5 p-5 border rounded-md w-fit'>{{$macbook->price}}€</p>
                 </div>
                 @if($macbook->arYra)
                 <form method="POST" action="/cart/add/mac/{{ $macbook->id }}">
@@ -79,7 +79,7 @@
 </div>
 
     
-    <footer class='bg-gray-300 fixed bottom-0 left-0 right-0 p-10'> </footer>    
+    <footer class='bg-gray-300 absolute bottom-0 left-0 right-0 p-10'> </footer>    
 
 </body>
 </html>

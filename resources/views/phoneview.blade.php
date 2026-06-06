@@ -8,7 +8,7 @@
      @vite(['resources/css/app.css', 'resources/js/add.js'])
     <title>{{$iphone->name}}</title>
 </head>
-<body class='italic text-white font-bold'>
+<body class='italic text-white font-bold relative'>
    <header class='flex justify-between items-center bg-[#292323] p-5'> 
         <div class='text-xl'>
             <a class='hover:text-blue-400 transition-transform duration-300' href='/#'>icon</a>
@@ -31,8 +31,8 @@
 
         </div>
     </header>
-    <div class='flex border rounded-md justify-center items-center mt-30'>
-        <div class='flex justify-center items-center text-black  gap-20 p-20 border'>
+    <div class='flex border rounded-md justify-center items-center '>
+        <div class='flex justify-center items-center text-black  gap-10 mt-20 mb-40 p-10 border'>
             <img class='p-2 border-3 border-gray-300 mt-20' src='{{asset($iphone->image)}}'>
             <div class='flex flex-col gap-5 mt-20 text-2xl'>
                 <div >
@@ -78,7 +78,7 @@
             </div>
         </div>
     </div>
-    <footer class='bg-gray-300 fixed bottom-0 left-0 right-0 p-10'> </footer>
+    <footer class='bg-gray-300 absolute bottom-0 left-0 right-0 p-10'> </footer>
 
 </body>
 </html>

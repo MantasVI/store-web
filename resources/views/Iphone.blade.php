@@ -118,9 +118,11 @@
 
             <div class='grid  grid-cols-4 bg-white  gap-y-5 gap-x-5 mb-40'>
                 @foreach($iphones as $iphone)
-                 <a class='a' href='/iphone/{{$iphone->name}}'> 
-                    <div class='h-full  border border-gray-300 hover:border-black  rounded-sm flex flex-col items-center p-5 mt-15'>
-                    <img  class='h-[300px] w-[300px] 'src="{{$iphone->image}}">
+                
+                    <div class='a h-full  border border-gray-300 hover:border-black  rounded-sm flex flex-col items-center p-5 mt-15'>
+                     <a  href='/iphone/{{$iphone->name}}'> 
+                        <img  class='h-[300px] w-[300px] 'src="{{$iphone->image}}">  
+                    </a>
                         <div class='mt-10'>
                             <div class='flex gap-2 justify-center flex-wrap'>
                                 <p class='kategorija text-xl text-center'>{{$iphone->kategorija}}</p> 
@@ -128,22 +130,36 @@
                                 <p class='color text-xl text-center'>{{$iphone->color}}</p> 
                                 <p class='screenSize text-xl text-center'>{{$iphone->screenSize}}</p> 
                             </div>
+                  
                             <div>
                                 <p class='status text-lg text-center' style='color: {{$iphone->arYra ? "green" : "red"}}'>{{$iphone->arYra ? 'Yes':'No'}}</p>
                                 <p class='price text-xl text-center'>{{$iphone->price}} €</p>
                             </div>  
                         </div>
-                        <div class='mt-15 '>
-                            <button class='add bg-black hover:bg-blue-600 transition-colors duration-300 pl-10 pr-10 pt-5 pb-5 rounded-sm text-white'>
-                                <span class="material-symbols-outlined ">shopping_cart</span>
-                            </button>
+                
+                        <div class='mt-15  '>
+                            <form method="POST" action="/cart/add/iphone/{{ $iphone->id }}">
+                                @csrf
+                                @if($iphone->arYra)
+                                <input class='counter w-10 text-center outline-none ' type='hidden' name="kiekis" value='1'>
+                                <button type='submit' class='add bg-black hover:bg-blue-600 transition-colors duration-300 pl-10 pr-10 pt-5 pb-5 rounded-sm text-white'>
+                                    <span class="material-symbols-outlined ">shopping_cart</span>
+                                </button>
+                                @else
+                                <a class='inline-block bg-black hover:bg-blue-600 transition-colors duration-300 pl-10 pr-10 pt-5 pb-5 rounded-sm text-white ' href='/iphone/{{$iphone->name}}'>View</a>
+    
+                               
+                                @endif
+                            </form>
                         </div>
                    
-                </div> </a>
+                </div> 
               @endforeach
             </div>
         </div>
     </div>
+
 <footer class='bg-gray-300 absolute bottom-0 left-0 right-0 p-10 '> </footer>
+
 </body>
 </html>

@@ -148,9 +148,11 @@
 
             <div class='grid  grid-cols-4 bg-white p-5 gap-y-5 gap-x-5 mb-40'>
                 @foreach($macbook as $mac)
-                 <a class='a' href='/mac/{{$mac->name}}'> 
-                    <div class='h-full  border border-gray-300 hover:border-black  rounded-sm flex flex-col items-center p-5 mt-15'>
-                    <img  class='h-[300px] w-[300px] 'src="{{$mac->image}}">
+                  
+                    <div class='a h-full  border border-gray-300 hover:border-black  rounded-sm flex flex-col items-center p-5 mt-15'>
+                    <a href='/mac/{{$mac->name}}'>
+                        <img  class='h-[150px] w-[150px] 'src="{{$mac->image}}">
+                    </a>
                         <div class='mt-5'>
                             <div class='flex gap-2 flex-wrap justify-center'>
                                 <p class='kategorija text-xl text-center'>{{$mac->kategorija}}</p>
@@ -167,13 +169,24 @@
                                 <p class='price text-xl text-center'>{{$mac->price}} €</p>
                             </div>
                         </div>
-                        <div class='mt-5 flex'>
-                            <button class='add bg-black hover:bg-blue-600 transition-colors duration-300 pl-10 pr-10 pt-5 pb-5 rounded-sm text-white'>
-                                <span class="material-symbols-outlined ">shopping_cart</span>
-                            </button>
+                         <div class='mt-15  '> 
+                            @if($mac->arYra)
+                            <form method="POST" action="/cart/add/mac/{{ $mac->id }}">
+                                @csrf
+                              
+                                <input class='counter w-10 text-center outline-none ' type='hidden' name="kiekis" value='1'>
+                                <button type='submit' class='add bg-black hover:bg-blue-600 transition-colors duration-300 pl-10 pr-10 pt-5 pb-5 rounded-sm text-white'>
+                                    <span class="material-symbols-outlined ">shopping_cart</span>
+                                </button>
+                                @else
+                                <a class='inline-block bg-black hover:bg-blue-600 transition-colors duration-300 pl-10 pr-10 pt-5 pb-5 rounded-sm text-white ' href='/mac/{{$mac->name}}'>View</a>
+    
+                               
+                                @endif
+                            </form>
                         </div>
                    
-                </div> </a>
+                </div>
               @endforeach
             </div>
         </div>
