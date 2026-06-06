@@ -7,7 +7,7 @@
     @vite(['resources/css/app.css', 'resources/js/mac.js'])
     <title>Iphone telefonai</title>
 </head>
-<body class='italic text-white font-bold'>
+<body class='italic text-white font-bold relative '>
     <header class='flex justify-between items-center bg-[#292323] p-5'> 
         <div class=''>
             <a class='hover:text-blue-400 transition-transform duration-300' href='/#'>icon</a>
@@ -146,27 +146,31 @@
                 </select>
             </div>
 
-            <div class='grid  grid-cols-4 bg-white p-5 gap-y-5 gap-x-5'>
+            <div class='grid  grid-cols-4 bg-white p-5 gap-y-5 gap-x-5 mb-40'>
                 @foreach($macbook as $mac)
-                 <a class='a' href='/mac/{{$mac->name}}'> <div class=' aspect-square border border-gray-300 hover:border-black  rounded-sm flex flex-col items-center p-15 mt-15'>
-                  
-                    <img  class='h-50 w-50 'src="{{$mac->image}}">
+                 <a class='a' href='/mac/{{$mac->name}}'> 
+                    <div class='h-full  border border-gray-300 hover:border-black  rounded-sm flex flex-col items-center p-5 mt-15'>
+                    <img  class='h-[300px] w-[300px] 'src="{{$mac->image}}">
                         <div class='mt-5'>
                             <div class='flex gap-2 flex-wrap justify-center'>
-                             <p class='kategorija text-xl text-center'>{{$mac->kategorija}}</p>
-                             <p class='screenSize text-xl text-center'>{{$mac->screenSize}}</p> 
-                             <p class='screenType text-xl text-center'>{{$mac->screenType}}</p> 
-                             <p class='storage text-xl text-center'>{{$mac->storage}}</p>
-                              <p class='color text-xl text-center'>{{$mac->color}}</p> 
-                              <p class='cpu text-xl text-center'>{{$mac->cpu}}</p>
-                               <p class='gpu text-xl text-center'>{{$mac->gpu}}</p> 
-                               <p class='ram text-xl text-center'>{{$mac->ram}}</p>
+                                <p class='kategorija text-xl text-center'>{{$mac->kategorija}}</p>
+                                <p class='screenSize text-xl text-center'>{{$mac->screenSize}}</p> 
+                                <p class='screenType text-xl text-center'>{{$mac->screenType}}</p> 
+                                <p class='storage text-xl text-center'>{{$mac->storage}}</p>
+                                <p class='color text-xl text-center'>{{$mac->color}}</p> 
+                                <p class='cpu text-xl text-center'>{{$mac->cpu}}</p>
+                                <p class='gpu text-xl text-center'>{{$mac->gpu}}</p> 
+                                <p class='ram text-xl text-center'>{{$mac->ram}}</p>
                             </div>
-                            <p class='status text-lg text-center mt-5' style='color: {{$mac->arYra ? "green" : "red"}}'>{{$mac->arYra ? 'Yes':'No'}}</p>
-                            <p class='price text-xl text-center'>{{$mac->price}} €</p>
+                            <div>
+                                <p class='status text-lg text-center mt-5' style='color: {{$mac->arYra ? "green" : "red"}}'>{{$mac->arYra ? 'Yes':'No'}}</p>
+                                <p class='price text-xl text-center'>{{$mac->price}} €</p>
+                            </div>
                         </div>
-                        <div class='mt-7 '>
-                            <button class='add bg-black hover:bg-blue-600 transition-colors duration-300 pl-10 pr-10 pt-5 pb-5 rounded-sm text-white'><span class="material-symbols-outlined hover:text-blue-400">shopping_cart</span></button>
+                        <div class='mt-5 flex'>
+                            <button class='add bg-black hover:bg-blue-600 transition-colors duration-300 pl-10 pr-10 pt-5 pb-5 rounded-sm text-white'>
+                                <span class="material-symbols-outlined ">shopping_cart</span>
+                            </button>
                         </div>
                    
                 </div> </a>
@@ -176,11 +180,9 @@
     </div>
 
 
-  
-
-    <script src='mac.js'></script>
 
 
+  <footer class='bg-gray-300 absolute bottom-0 left-0 right-0 p-10  '> </footer>    
 
 </body>
 </html>

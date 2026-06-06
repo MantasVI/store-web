@@ -1,6 +1,7 @@
 const tipas = document.querySelector('.tipas'); // pigiausias arba brangiausias arnba default // 12 arba 24 arba 36 arba visi
 const gridas = document.querySelector('.grid');  // vienas is konteineriu
 const kiekis = document.querySelector('.quant');
+const originalOrder = Array.from(document.querySelectorAll('.a'));
 const data = Array.from(document.querySelectorAll('.a')).map(element => {
    return {
     element: element,
@@ -66,23 +67,28 @@ const data = Array.from(document.querySelectorAll('.a')).map(element => {
      {
         if(tipas.value.toLowerCase() === 'pigus')
         {
-            data.sort((a,b) => {
-                return a.price-b.price;
-            });
+            data.sort((a,b) =>  a.price - b.price );
+             
+           
+            data.forEach(item =>gridas.appendChild(item.element));
         }
         else if (tipas.value.toLowerCase() === 'brangus')
         {
-             data.sort((a,b) => {
-                return b.price-a.price;
-            });
+             data.sort((a,b) =>  b.price-a.price );
+              data.forEach(item =>gridas.appendChild(item.element));
         }
-        data.forEach(item =>gridas.appendChild(item.element));
+        else if(tipas.value.toLowerCase() === 'default')
+        {
+            originalOrder.forEach(item => gridas.appendChild(item));
+            
+           
+        }
+        
         applyall();
      }
 
-
-tipas.addEventListener('change',sortas);
 kiekis.addEventListener('change',applyall);
+tipas.addEventListener('change',sortas);
 document.querySelectorAll(".checkbox-kategorija, .checkbox-screenSize , .checkbox-screenType , .checkbox-cpu , .checkbox-gpu , .checkbox-ram , .checkbox-color , .checkbox-arYra , .checkbox-storage").forEach(ck => ck.addEventListener('change',applyall));
     
     

@@ -7,7 +7,7 @@
     @vite(['resources/css/app.css', 'resources/js/iphone.js'])
     <title>Iphone telefonai</title>
 </head>
-<body class='italic text-white font-bold'>
+<body class='italic text-white font-bold relative'>
     <header class='flex justify-between items-center bg-[#292323] p-5'> 
         <div class='text-xl'>
             <a class='hover:text-blue-400 transition-transform duration-300' href='/#'>icon</a>
@@ -25,7 +25,7 @@
 
 
             @endauth
-            <a class='ml-5 hover:text-blue-400 transition-transform duration-300' href='#'><span class="material-symbols-outlined">shopping_bag</span></a>
+            <a class='ml-5 hover:text-blue-400 transition-transform duration-300' href='/cart'><span class="material-symbols-outlined">shopping_bag</span></a>
 
 
         </div>
@@ -50,7 +50,14 @@
                     </div>
                     @endforeach
                 </div>
-
+                 <div class='flex flex-col ml-5  mb-5 gap-y-5'>
+                    <p>Screen Size</p>
+                    @foreach($iphones->unique('screenSize') as $iphone)
+                    <div class='flex items-center gap-2'>
+                    <input type='checkbox' class='checkbox-screenSize'  value="{{$iphone->screenSize}}" ><label>{{$iphone->screenSize}}  </label>     
+                    </div>
+                    @endforeach
+                </div>
                 <div class='flex flex-col ml-5  mb-5 gap-y-5'>
                     <p>Talpa</p>
                     @foreach($iphones->unique('storage') as $iphone)
@@ -93,7 +100,7 @@
             <hr class=" border ml-5 mt-5 mb-10 mr-5 border-black ">
 
             <div class='flex ml-5  gap-5 mb-5 items-center'>
-                <select class=' tipas p-2 border border-gray-300 hover:border-black rounded-sm outline-none'>
+                <select class='tipas p-2 border border-gray-300 hover:border-black rounded-sm outline-none'>
                     <option value='Pigus'>Pigiausi</option>
                     <option value='Brangus'>Brangiausi</option>
                     <option value='default' selected>-</option>
@@ -109,20 +116,27 @@
                 </select>
             </div>
 
-            <div class='grid  grid-cols-4 bg-white p-5 gap-y-5 gap-x-5'>
+            <div class='grid  grid-cols-4 bg-white  gap-y-5 gap-x-5 mb-40'>
                 @foreach($iphones as $iphone)
-                 <a class='a' href='/iphone/{{$iphone->name}}'> <div class=' aspect-square border border-gray-300 hover:border-black  rounded-sm flex flex-col items-center p-15 mt-15'>
-                  
-                    <img  class='h-[350px] w-[350px] 'src="{{$iphone->image}}">
-                        <div class='mt-5'>
-                            <div class='flex gap-2'>
-                             <p class='kategorija text-xl text-center'>{{$iphone->kategorija}}</p> <p class='storage text-xl text-center'>{{$iphone->storage}}</p> <p class='color text-xl text-center'>{{$iphone->color}}</p> 
+                 <a class='a' href='/iphone/{{$iphone->name}}'> 
+                    <div class='h-full  border border-gray-300 hover:border-black  rounded-sm flex flex-col items-center p-5 mt-15'>
+                    <img  class='h-[300px] w-[300px] 'src="{{$iphone->image}}">
+                        <div class='mt-10'>
+                            <div class='flex gap-2 justify-center flex-wrap'>
+                                <p class='kategorija text-xl text-center'>{{$iphone->kategorija}}</p> 
+                                <p class='storage text-xl text-center'>{{$iphone->storage}}</p>
+                                <p class='color text-xl text-center'>{{$iphone->color}}</p> 
+                                <p class='screenSize text-xl text-center'>{{$iphone->screenSize}}</p> 
                             </div>
-                            <p class='status text-lg text-center' style='color: {{$iphone->arYra ? "green" : "red"}}'>{{$iphone->arYra ? 'Yes':'No'}}</p>
-                            <p class='price text-xl text-center'>{{$iphone->price}} €</p>
+                            <div>
+                                <p class='status text-lg text-center' style='color: {{$iphone->arYra ? "green" : "red"}}'>{{$iphone->arYra ? 'Yes':'No'}}</p>
+                                <p class='price text-xl text-center'>{{$iphone->price}} €</p>
+                            </div>  
                         </div>
-                        <div class='mt-7 '>
-                            <button class='add bg-black hover:bg-blue-600 transition-colors duration-300 pl-10 pr-10 pt-5 pb-5 rounded-sm text-white'><span class="material-symbols-outlined ">shopping_cart</span></button>
+                        <div class='mt-15 '>
+                            <button class='add bg-black hover:bg-blue-600 transition-colors duration-300 pl-10 pr-10 pt-5 pb-5 rounded-sm text-white'>
+                                <span class="material-symbols-outlined ">shopping_cart</span>
+                            </button>
                         </div>
                    
                 </div> </a>
@@ -130,13 +144,6 @@
             </div>
         </div>
     </div>
-
-
-  
-
-    
-
-
-
+<footer class='bg-gray-300 absolute bottom-0 left-0 right-0 p-10 '> </footer>
 </body>
 </html>

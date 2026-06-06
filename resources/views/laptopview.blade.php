@@ -26,35 +26,35 @@
 
 
             @endauth
-            <a class='ml-5 hover:text-blue-400 transition-transform duration-300' href='#'><span class="material-symbols-outlined">shopping_bag</span></a>
+            <a class='ml-5 hover:text-blue-400 transition-transform duration-300' href='/cart'><span class="material-symbols-outlined">shopping_bag</span></a>
 
 
         </div>
     </header>
-     <div class='flex border rounded-md justify-center items-center mt-15'>
-        <div class='flex justify-center items-center text-black mt-20 gap-20 border p-15'>
-            <img class='p-5 border-2 border-gray-300 mt-20' src='{{asset($macbook->image)}}'>
-            <div class='flex flex-col gap-10 mt-20 text-3xl'>
+     <div class='flex justify-center items-center mt-25'>
+        <div class='flex justify-center rounded-lg items-center text-black mt-20 gap-20 border p-15'>
+            <img class='p-5 border rounded-lg  border-gray-300 mt-20' src='{{asset($macbook->image)}}'>
+            <div class='flex flex-col gap-5 mt-20 text-2xl'>
                 <div >
-                    <p class='text-6xl '>{{$macbook->name}}</p>
+                    <p class='text-3xl '>{{$macbook->name}}</p>
                 </div>
                 <div style="color: {{$macbook->arYra ? 'green' : 'red'}}">
                     <p>{{$macbook->arYra ? 'Yes' : 'No'}}</p>
                 </div>
                 <div>
-                    <p class='text-4xl '>Storage</p>
-                    <p class='mt-5 p-10 border rounded-md w-fit'>{{$macbook->storage}}</p>
+                    <p>Storage</p>
+                    <p class='mt-5 p-5 border rounded-md w-fit'>{{$macbook->storage}}</p>
                 </div>
                 <div>
-                    <p class='text-4xl '>Color</p>
-                    <p class='mt-5 p-10 border rounded-md w-fit'>{{$macbook->color}}</p>
+                    <p>Color</p>
+                    <p class='mt-5 p-5 border rounded-md w-fit'>{{$macbook->color}}</p>
                 </div>
                 <div>
-                    <p class='text-4xl '>Price</p>
-                    <p class='price mt-5 p-20 border rounded-md w-fit'>{{$macbook->price}}€</p>
+                    <p >Price</p>
+                    <p class='mt-5 p-5 border rounded-md w-fit'>{{$macbook->price}}€</p>
                 </div>
                 @if($macbook->arYra)
-                <form method="POST" action="/mac/add/{{ $macbook->id }}">
+                <form method="POST" action="/cart/add/mac/{{ $macbook->id }}">
                     @csrf
                     <div class='mt-7  flex  gap-y-10'>
                         
@@ -77,7 +77,9 @@
             </div>
         </div>
 </div>
+
+    
     <footer class='bg-gray-300 fixed bottom-0 left-0 right-0 p-10'> </footer>    
-  
+
 </body>
 </html>

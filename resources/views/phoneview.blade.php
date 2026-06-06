@@ -26,7 +26,7 @@
 
 
             @endauth
-            <a class='ml-5 hover:text-blue-400 transition-transform duration-300' href='#'><span class="material-symbols-outlined">shopping_bag</span></a>
+            <a class='ml-5 hover:text-blue-400 transition-transform duration-300' href='/cart'><span class="material-symbols-outlined">shopping_bag</span></a>
 
 
         </div>
@@ -55,7 +55,7 @@
                     <p class='price mt-5 p-10 border rounded-md w-fit' name="kaina">{{$iphone->price}} €</p>
                 </div>
                 @if($iphone->arYra)
-                <form method="POST" action="/iphone/add/{{ $iphone->id }}">
+                <form method="POST" action="/cart/add/iphone/{{ $iphone->id }}">
                     @csrf
                     <div class='mt-7  flex  gap-y-10'>
                         
@@ -79,6 +79,6 @@
         </div>
     </div>
     <footer class='bg-gray-300 fixed bottom-0 left-0 right-0 p-10'> </footer>
-    
+
 </body>
 </html>

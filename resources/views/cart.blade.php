@@ -30,52 +30,57 @@
 
         </div>
     </header>
-   <div class="flex flex-col border  items-center justify-center">
-      <div class='flex border p-10 rounded-sm gap-5 mt-20 text-2xl text-black'>
+   <div class="flex flex-col border  items-center justify-center ">
+      <div class='flex border p-10 rounded-sm gap-5 mt-20 text-2xl text-black mb-40'>
         <table class="border p-5 ">
             <tr>
-                <th class="p-5">Nuotrauka</th>
-                 <th class="p-5">Pavadinimas</th>
-                <th class="p-5">Vieneto kaina</th>
-                <th  class="p-5">Kiekis</th>
-                <th class="p-5">Suma</th>
+                <th class="p-5">Product Image</th>
+                 <th class="p-5">Product Name</th>
+                <th class="p-5">Singular Product Price</th>
+                <th  class="p-5">Quantity</th>
+                <th class="p-5">Sum</th>
+                <th class="p-5"> Edit quantity</th>
+                <th class="p-5">Remove item</th>
             </tr>
-                <tbody class=" border">
+                <tbody class=" border"> @foreach($items as $item)
                     <tr>
-                        
-                        <td class='p-20'><img class="p-5 w-[500px] h-[500px] block" src='{{asset($item->image)}}'></td>
-                        <td class="p-20 text-center">{{ $item->name }}</td>
-                        <td class="p-20 text-center">{{$item->price}} €</td>
-                        <td class="p-20 text-center">{{ $kiekis }}</td>
-                        <td class="p-20 text-center">{{ $bendras }} €</td>
-                    </tr>
+                       
+                        <td class='p-20'><img class="p-5 w-[300px] h-[300px] block" src="{{asset($item['product']->image)}}"></td>
+                        <td class="p-20 text-center">{{ $item['product']->name }}</td>
+                        <td class="p-20 text-center">{{$item['product']->price}} €</td>
+                        <td class="p-10 text-center">{{ $item['quantity'] }}</td>
+                        <td class="p-10 text-center">{{ $item['total'] }} €</td>
+                        <td class="p-10 text-center"><button class='border p-5'>Edit</button></td>
+                        <td class="p-10 text-center"><button class='border p-5'>Remove</button></td>
+                    </tr>  @endforeach
                 </tbody>
             
              
         </table>
         <div class="flex flex-col border p-20">
+           
             <p class='mb-10'>apzvalga</p>
             <div class="flex justify-between mt-5 mb-5">
                 <p>suma: </p>
-                <p>{{$bendras}} €</p>
+                <p>{{ $item['total'] }} €</p>
             </div>
             <div class="flex justify-between  mt-5 mb-5">
                 <p>Viso be Pvm:</p>
-                <p></p>
+                <p>{{ $item['pvm'] }} €</p>
 
             </div>
              <div class="flex justify-between  mt-5 mb-5">
-                <p class="mr-5">Visa PVM suma: </p>
-                <p>{{$bendras}} €</p>
+                <p class="mr-5">Visa suma su PVM: </p>
+                <p>{{ $item['total'] }} €</p>
             </div>
              <div  class="flex justify-center mt-20 ">
                 <button class="w-fit p-5 border ">Pirkti</button>
             </div>
-
+            
         </div>
    </div>
     
-<footer class='bg-gray-300 fixed bottom-0 left-0 right-0 p-10'> </footer>
+<footer class='bg-gray-300 absolute  bottom-0 left-0 right-0 p-10'> </footer>
                
 </body>
 </html>
