@@ -24,18 +24,19 @@ class CartController extends Controller
             }
             else
             {
-                $product = Mac::getId($cartItem['id']);
+                $product = Macbook::getId($cartItem['id']);
             }
 
             $items[] = [
                 'product' => $product,
                 'quantity' => $cartItem['quantity'],
                 'total' => $product->price * $cartItem['quantity'],
-                'pvm' => ($product->price * $cartItem['quantity'] * 79)/100 ,
             ];
+            
         }
-
-        return view('cart',['items' => $items]);
+         $pvm = (array_sum(array_column($items,'total')) * 79)/100;
+            $grandtotal = array_sum(array_column($items,'total'));
+        return view('cart',['items' => $items, 'grandtotal' => $grandtotal,'pvm'=> $pvm]);
     }
 
     /**
