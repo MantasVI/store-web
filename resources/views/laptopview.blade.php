@@ -22,7 +22,7 @@
             <a class='mr-5 hover:text-blue-400 transition-transform duration-300' href='/login'>login</a>
             @endguest
             @auth
-             <a class='mr-5 hover:text-blue-400 transition-transform duration-300' href='/userpage'><span class="material-symbols-outlined">account_circle</span></a>
+               <span class="material-symbols-outlined mr-5 hover:text-blue-400 transition-transform duration-300">account_circle</span>
 
 
             @endauth
@@ -32,7 +32,7 @@
         </div>
     </header>
      <div class='flex justify-center items-center'>
-        <div class='flex justify-center rounded-lg items-center text-black  gap-10 border p-5 mt-20 mb-40'>
+        <div class='flex justify-center rounded-lg items-center text-black  gap-10 border p-5 mt-20 mb-30'>
             <img class='p-5 border rounded-lg  border-gray-300 mt-10' src='{{asset($macbook->image)}}'>
             <div class='flex flex-col gap-5 mt-20 text-2xl'>
                 <div >
@@ -79,7 +79,7 @@
 </div>
 
     
-    <footer class='bg-gray-300 absolute bottom-0 left-0 right-0 p-10'> </footer>    
+   
 
 </body>
 </html>

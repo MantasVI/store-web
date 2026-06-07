@@ -19,6 +19,9 @@ Route::get('/mac/{name}',[MacController::class,'single']);
 
 Route::get('/cart',[CartController::class,'cart']);
 Route::post('/cart/add/{type}/{id}',[CartController::class,'add']);
+Route::delete('/cart/delete/{id}',[CartController::class,'remove']);
+Route::get('/cart/edit/{id}',[CartController::class,'edit']);
+Route::put('/cart/update/{id}',[CartController::class,'update']);
 
 
 Route::get('/signup',[AuthController::class,'signup']);

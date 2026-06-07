@@ -15,7 +15,6 @@ class Iphone extends Model
         'storage',
         'color',
         'price',
-        'oldprice',
         'arYra',
     ];
 

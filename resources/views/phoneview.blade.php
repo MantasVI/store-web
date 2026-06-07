@@ -22,7 +22,7 @@
             <a class='mr-5 hover:text-blue-400 transition-transform duration-300' href='/login'>login</a>
             @endguest
             @auth
-             <a class='mr-5 hover:text-blue-400 transition-transform duration-300' href='/userpage'><span class="material-symbols-outlined">account_circle</span></a>
+              <span class="material-symbols-outlined mr-5 hover:text-blue-400 transition-transform duration-300">account_circle</span>
 
 
             @endauth
@@ -31,9 +31,9 @@
 
         </div>
     </header>
-    <div class='flex border rounded-md justify-center items-center '>
-        <div class='flex justify-center items-center text-black  gap-10 mt-20 mb-40 p-10 border'>
-            <img class='p-2 border-3 border-gray-300 mt-20' src='{{asset($iphone->image)}}'>
+    <div class='flex  justify-center items-center '>
+        <div class='flex justify-center items-center text-black rounded-sm  gap-10 mt-20 mb-40 p-10 border'>
+            <img class='h-full w-[500px] p-2 border-3 rounded-md border-gray-300 mt-10' src='{{asset($iphone->image)}}'>
             <div class='flex flex-col gap-5 mt-20 text-2xl'>
                 <div >
                     <p class='text-3xl '>{{$iphone->name}}</p>
@@ -78,7 +78,5 @@
             </div>
         </div>
     </div>
-    <footer class='bg-gray-300 absolute bottom-0 left-0 right-0 p-10'> </footer>
-
 </body>
 </html>

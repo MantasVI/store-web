@@ -56,7 +56,7 @@ const data = Array.from(document.querySelectorAll('.a')).map(element => {
         });
 
         filtered.slice(0,limit).forEach(item => {
-            item.element.style.display = 'block';
+            item.element.style.display = 'flex';
         });
         
     }

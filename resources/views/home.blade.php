@@ -21,22 +21,41 @@
             <a class='mr-5 hover:text-blue-400 transition-transform duration-300' href='/login'>login</a>
             @endguest
             @auth
-             <a class='mr-5 hover:text-blue-400 transition-transform duration-300' href='/userpage'><span class="material-symbols-outlined">
-account_circle
-</span></a>
+              <span class="material-symbols-outlined mr-5 hover:text-blue-400 transition-transform duration-300">account_circle</span>
+
+
             @endauth
-            <a class='ml-5 hover:text-blue-400 transition-transform duration-300' href='/cart'><span class="material-symbols-outlined">
-shopping_bag
-</span></a>
+            <a class='ml-5 hover:text-blue-400 transition-transform duration-300' href='/cart'><span class="material-symbols-outlined">shopping_bag</span></a>
+
+
         </div>
     </header>
-    <main class='bg-gray-300 pl-20 pr-20'>
-    <div class='flex justify-between items-center bg-[#292323] p-5'>
-        <div class=''>
-            <img src="/images/macbookneo.jpg">
-            <a class='hover:text-blue-400 transition-transform duration-300' href='/#'>MacBook Neo</a>
+    <main class='bg-green-500 flex justify-center items-center min-h-screen bg-gray-100 p-4'>
+    <div class='bg-blue-400 rounded-lg shadow-lg overflow-hidden w-full max-w-4xl'>
+        <div class='flex space-x-4'>
+            <img 
+            src="/images/mac.jpg"
+            class='h-64 w-full object-cover'
+            >
+             <img 
+            src="/images/mac.jpg"
+            class='h-64 w-full object-cover'
+            >
+             <img 
+            src="/images/mac.jpg"
+            class='h-64 w-full object-cover'
+            >
         </div>
-
+        <div class='flex justify-center mt-4'>
+            <button class='bg-gray-300 rounded-full h-4 w-4 mx-1'></button>
+            <button class='bg-gray-300 rounded-full h-4 w-4 mx-1'></button>
+            <button class='bg-gray-300 rounded-full h-4 w-4 mx-1'></button>
+        </div>
+        <div class='flex justify-between items-center mt-4 px-4'>
+            <button class='bg-gray-300 rounded-full p-2'>Prev</button>
+            <button class='bg-gray-300 rounded-full p-2'>Next</button>
+           
+        </div>
     </div>
 
 

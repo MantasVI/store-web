@@ -44,7 +44,7 @@ function applyAll() {
     });
         
     filtered.slice(0, limit).forEach(item => {
-        item.element.style.display = 'block'
+        item.element.style.display = 'flex'
     });
 }
 

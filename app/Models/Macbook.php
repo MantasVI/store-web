@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 class Macbook extends Model
 {
     protected $fillable =[
-    'name','image','kategorija','screenSize','screenType','cpu','gpu','ram','storage','color','price','oldprice','arYra',
+    'name','image','kategorija','screenSize','screenType','cpu','gpu','ram','storage','color','price','arYra',
 
 
     ];

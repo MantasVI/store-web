@@ -21,7 +21,7 @@
             <a class='mr-5 hover:text-blue-400 transition-transform duration-300' href='/login'>login</a>
             @endguest
             @auth
-             <a class='mr-5 hover:text-blue-400 transition-transform duration-300' href='/userpage'><span class="material-symbols-outlined">account_circle</span></a>
+              <span class="material-symbols-outlined mr-5 hover:text-blue-400 transition-transform duration-300">account_circle</span>
 
 
             @endauth
@@ -52,7 +52,7 @@
                 </div>
                  <div class='flex flex-col ml-5  mb-5 gap-y-5'>
                     <p>Screen Size</p>
-                    @foreach($iphones->unique('screenSize') as $iphone)
+                    @foreach($iphones->whereNotNull('screenSize')->unique('screenSize') as $iphone)
                     <div class='flex items-center gap-2'>
                     <input type='checkbox' class='checkbox-screenSize'  value="{{$iphone->screenSize}}" ><label>{{$iphone->screenSize}}  </label>     
                     </div>
@@ -119,34 +119,35 @@
             <div class='grid  grid-cols-4 bg-white  gap-y-5 gap-x-5 mb-40'>
                 @foreach($iphones as $iphone)
                 
-                    <div class='a h-full  border border-gray-300 hover:border-black  rounded-sm flex flex-col items-center p-5 mt-15'>
+                    <div class='a h-full  border border-gray-300 hover:border-black  rounded-sm flex flex-col items-center p-5 mt-10'>
                      <a  href='/iphone/{{$iphone->name}}'> 
-                        <img  class='h-[300px] w-[300px] 'src="{{$iphone->image}}">  
+                        <img  class='h-[200px] w-[200px] 'src="{{$iphone->image}}">  
                     </a>
                         <div class='mt-10'>
                             <div class='flex gap-2 justify-center flex-wrap'>
-                                <p class='kategorija text-xl text-center'>{{$iphone->kategorija}}</p> 
-                                <p class='storage text-xl text-center'>{{$iphone->storage}}</p>
-                                <p class='color text-xl text-center'>{{$iphone->color}}</p> 
-                                <p class='screenSize text-xl text-center'>{{$iphone->screenSize}}</p> 
+                                <p class='kategorija text-md text-center'>{{$iphone->kategorija}}</p> 
+                                <p class='storage text-md text-center'>{{$iphone->storage}}</p>
+                                <p class='color text-md text-center'>{{$iphone->color}}</p> 
+                                <p class='screenSize text-md text-center'>{{$iphone->screenSize}}</p> 
                             </div>
                   
                             <div>
-                                <p class='status text-lg text-center' style='color: {{$iphone->arYra ? "green" : "red"}}'>{{$iphone->arYra ? 'Yes':'No'}}</p>
-                                <p class='price text-xl text-center'>{{$iphone->price}} €</p>
+                                <p class='status text-md text-center' style='color: {{$iphone->arYra ? "green" : "red"}}'>{{$iphone->arYra ? 'Yes':'No'}}</p>
+                                <p class='price text-lg text-center'>{{$iphone->price}} €</p>
                             </div>  
                         </div>
                 
-                        <div class='mt-15  '>
+                         <div class='mt-auto  '> 
+                            @if($iphone->arYra)
                             <form method="POST" action="/cart/add/iphone/{{ $iphone->id }}">
                                 @csrf
-                                @if($iphone->arYra)
+                              
                                 <input class='counter w-10 text-center outline-none ' type='hidden' name="kiekis" value='1'>
-                                <button type='submit' class='add bg-black hover:bg-blue-600 transition-colors duration-300 pl-10 pr-10 pt-5 pb-5 rounded-sm text-white'>
+                                <button type='submit' class='add bg-black hover:bg-blue-600 transition-colors duration-300 pl-8 pr-8 pt-5 pb-5 rounded-sm text-white'>
                                     <span class="material-symbols-outlined ">shopping_cart</span>
                                 </button>
                                 @else
-                                <a class='inline-block bg-black hover:bg-blue-600 transition-colors duration-300 pl-10 pr-10 pt-5 pb-5 rounded-sm text-white ' href='/iphone/{{$iphone->name}}'>View</a>
+                                <a class='inline-block bg-black hover:bg-blue-600 transition-colors duration-300 pl-8 pr-8 pt-5 pb-5 rounded-sm text-white ' href='/iphone/{{$iphone->name}}'>View</a>
     
                                
                                 @endif
