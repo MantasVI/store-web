@@ -53,10 +53,10 @@
                             </div>
                             </td>
                          <td class="p-10 text-center">
-                            <button type='submit' href="/cart/update/{{$key}}" class='rounded-sm border pr-5 pl-5 pt-3 pb-3'>Update</button>
+                            <button type='submit' href="/cart/update/{{$key}}" class='rounded-sm border pr-5 pl-5 pt-3 pb-3 transition-colors duration-300 hover:text-white hover:bg-black'>Update</button>
                         </td>
                          <td class="p-10 text-center">
-                            <a href="/cart" class=' rounded-sm border pr-5 pl-5 pt-3 pb-3'>Cancel</a>
+                            <a href="/cart" class=' rounded-sm border pr-5 pl-5 pt-3 pb-3 transition-colors duration-300 hover:text-white hover:bg-black'>Cancel</a>
                         </td>
                     </tr>  
                 </tbody>

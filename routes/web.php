@@ -5,10 +5,9 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\MacController;
 use App\Http\Controllers\IphoneController;
 use App\Http\Controllers\CartController;
+use App\Http\Controllers\HomeController;
 
-Route::get('/', function () {
-    return view('home');
-});
+Route::get('/', [HomeController::class,'index']);
 
 Route::get('/mac', [MacController::class,'index']);
 Route::get('/iphone',[IphoneController::class,'index']);  

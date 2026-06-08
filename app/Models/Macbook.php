@@ -24,9 +24,9 @@ class Macbook extends Model
     {
         return self::where('id',$id)->first();
     }
-    public function getScreenSize($screenSize)
+    public static function getRandom()
     {
-        return self::find($screenSize);
+        return self::inRandomOrder()->limit(8)->get();
     }
     public function getStorage($storage)
     {

@@ -32,7 +32,7 @@
         </div>
     </header>
      <div class='flex justify-center items-center'>
-        <div class='flex justify-center rounded-lg items-center text-black  gap-10 border p-5 mt-20 mb-30'>
+        <div class='flex justify-center rounded-lg items-center text-black  gap-10 border p-7 mt-20 mb-30 shadow-lg'>
             <img class='p-5 border rounded-lg  border-gray-300 mt-10' src='{{asset($macbook->image)}}'>
             <div class='flex flex-col gap-5 mt-20 text-2xl'>
                 <div >
@@ -65,7 +65,7 @@
                             
                         </div>
                         <div class='flex  gap-5 w-fit'>
-                        <button type="submit" class='hover:text-blue-400 ml-5 bg-black pl-10 pr-10 pt-5 pb-5 rounded-sm text-white'>Add to Cart</button>
+                        <button type="submit" class=' transition-colors duration-300  hover:bg-blue-600 ml-5 bg-black pl-10 pr-10 pt-5 pb-5 rounded-sm text-white'>Add to Cart</button>
                         </div>
                     </div>
                 </form>

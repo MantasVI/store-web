@@ -31,9 +31,9 @@ class Iphone extends Model
     {
         return self::where('id',$id)->first();
     }
-    public function getKategorija($kategorija)
+    public static function getRandom()
     {
-        return self::find($kategorija);
+        return self::inRandomOrder()->limit(8)->get();
     }
     public function getScreenSize($screenSize)
     {

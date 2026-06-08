@@ -52,13 +52,13 @@
                         <td class="p-10 text-center">{{ $item['quantity'] }}</td>
                         <td class="p-10 text-center">{{ $item['total'] }} €</td>
                         <td class="p-10 text-center">
-                            <a href="/cart/edit/{{$item['key']}}" class=' rounded-sm border pr-5 pl-5 pt-3 pb-3'>Edit</a>
+                            <a href="/cart/edit/{{$item['key']}}" class='transition-colors duration-300 hover:text-white hover:bg-black rounded-sm border pr-5 pl-5 pt-3 pb-3'>Edit</a>
                         </td>
                         <td class="p-10 text-center">
                             <form method='POST' action="/cart/delete/{{$item['key']}}">
                                 @csrf
                                 @method('DELETE')
-                                <button type='submit' class=' rounded-sm border pr-5 pl-5 pt-3 pb-3'>Remove</button>
+                                <button type='submit' class=' transition-colors duration-300 hover:text-white hover:bg-black rounded-sm border pr-5 pl-5 pt-3 pb-3'>Remove</button>
                             </form>
                         </td>
                     </tr>  @endforeach
@@ -66,7 +66,7 @@
             
              
         </table>
-        <div class="flex flex-col border rounded-sm p-10 h-fit">
+        <div class="flex flex-col border rounded-sm p-10 h-fit shadow-lg">
             <div class="flex justify-between mt-5 mb-5">
                 <p>Total: </p>
                 <p>{{$grandtotal}} €</p>
@@ -76,13 +76,13 @@
                 <p>{{$pvm}} €</p>
             </div>
              <div  class="flex justify-center mt-20 ">
-                <button class=" rounded-sm w-fit p-5 border ">Checkout</button>
+                <button class="transition-colors duration-300 hover:text-white hover:bg-black rounded-sm w-fit p-5 border ">Checkout</button>
             </div>
             
         </div>
         @else
-       <table class=" h-fit">
-            <tr class="border bg-gray-100">
+       <table class=" h-fit ">
+            <tr class="border bg-gray-100 ">
                 <th class="p-5 ">Product Image</th>
                  <th class="p-5">Product Name</th>
                 <th class="p-5">Singular Product Price</th>

@@ -30,7 +30,7 @@
     </header>
    
        <div class='flex flex-row justify-center gap-10 p-5'>
-            <div class='w-[15%] text-black mt-10  bg-white border-2 border-black rounded-lg self-start wrap'>
+            <div class='w-[15%] text-black mt-10  bg-white border-2 border-black rounded-lg self-start wrap shadow-lg'>
                 
                 <div class='flex ml-5  mt-5 flex-col '>
                     <p>Filters</p>
@@ -130,14 +130,14 @@
             <hr class=" border ml-5 mt-5 mb-10 mr-5 border-black ">
 
             <div class='flex ml-5  gap-5 mb-5 items-center'>
-                <select class=' tipas p-2 border border-gray-300 hover:border-black rounded-sm outline-none'>
+                <select class=' tipas p-2 border border-gray-300 hover:border-black rounded-sm outline-none shadow-md'>
                     <option value='Pigus'>Cheap</option>
                     <option value='Brangus'>Expensive</option>
                     <option value='default' selected>-</option>
                 </select>
             
 
-                <select class='quant p-2 border border-gray-300 hover:border-black  rounded-sm outline-none'>
+                <select class='quant p-2 border border-gray-300 hover:border-black  rounded-sm outline-none shadow-md'>
                     <option value='12' >12</option>
                     <option value='24'>24</option>
                     <option value='36'>36</option>
@@ -149,7 +149,7 @@
             <div class='grid  grid-cols-4 bg-white  gap-y-5 gap-x-5 mb-40'>
                 @foreach($macbook as $mac)
                   
-                    <div class='a h-full  border border-gray-300 hover:border-black  rounded-sm flex flex-col items-center p-5 mt-15'>
+                    <div class='a h-full  border border-gray-300 hover:border-black  rounded-sm flex flex-col items-center p-5 mt-15 shadow-md'>
                     <a href='/mac/{{$mac->name}}'>
                         <img  class='h-[200px] w-[200px] 'src="{{$mac->image}}">
                     </a>
