@@ -53,69 +53,120 @@
     </div>
     
     
-    <div class='flex mt-20  bg-blue-300 items-center justify-center gap-x-2'>
+    <div class='flex  mt-20  items-stretch justify-center gap-x-2 text-black'>
+            <a href="/mac" >
+            <div class='flex flex-col bg-white  border border-gray-300 hover:border-black  rounded-sm  w-[1000px] h-[1009px] items-center justify-center gap-2'>
+    
+                    <p class="text-center text-4xl font-bold">For Absolute Professionals</p>
+                       <p class="text-center mt-10">{{$big->price}}€</p>
+                       <button class="cursor-pointer p-5 bg-black text-center text-white">Buy Now</button>
             
-            <div class=' w-full  bg-red-200  items-center justify-center'>
+                <img  src="{{ $big->image }}" class='slide w-[600px] h-[600px] object-contain'>
+
+
                 
-                <img  src="/images/mac.jpg" class='slide  w-full   object-fit'>
 
-            </div>
+            </div></a>
 
-            <div class='flex flex-col justify-center items-center gap-y-2'>
-                <div class='  bg-green-200  items-center justify-center'>
+            <div class='flex flex-col  justify-center items-center gap-2'>
+                
+               <a href="/iphone" > 
+                <div class='flex bg-white  border border-gray-300 hover:border-black  rounded-sm w-[1000px] h-[500px]  justify-between items-center px-5'>
                     
-                    <img src="/images/mac.jpg" class='slide  w-full object-fit'>
+                     <div class="flex flex-col justify-center items-center gap-2">
+                        <p class="text-center text-3xl font-bold w-[300px]">Swap To The New Iphone 17!</p>
+                        <p class="text-center mt-10">{{$small1->price}}€</p>
+                       <button class="cursor-pointer p-5 bg-black text-center text-white">Buy Now</button>
+                    </div>
+                    <img src="{{ $small1->image }}" class='slide  w-[300px] h-[300px] object-contain'>
                    
                 
                 </div>
-                 <div class='  bg-green-200  items-center justify-center'>
+                </a>
+
+             <a href="/mac" >  <div class='flex bg-white  border border-gray-300 hover:border-black  rounded-sm  w-[1000px] h-[500px]  justify-between items-center px-5'>
                     
-                    <img src="/images/mac.jpg" class='slide  w-full object-fit'>
+                      <div class="flex flex-col justify-center items-center gap-2">                
+                        <p class="text-center text-3xl font-bold w-[300px]">Fast And Extremely Powerful Mac M2 Ultra</p>
+                        <p class="text-center mt-10">{{$small2->price}}€</p>
+                       <button class="cursor-pointer p-5 bg-black text-center text-white">Buy Now</button>
+                    </div>   
+                    <img src="{{ $small2->image }}" class='slide  w-[300px] h-[300px] object-contain'>
                    
                 
-                </div>
+                </div></a>
+
             </div>
 
             
     </div>
-    <div class='flex mt-20 bg-blue-300 items-center justify-center gap-x-2'>
-            
 
-            <div class='flex flex-col justify-center items-center gap-y-2'>
-                <div class='  bg-green-200  items-center justify-center'>
+
+    <div class='flex mt-2  items-stretch justify-center gap-x-2 text-black'>
+            <div class='flex flex-col justify-center items-center gap-2'>
+                <a href="/iphone" >
+                <div class='flex bg-white  border border-gray-300 hover:border-black  rounded-sm  w-[1000px] h-[500px]  justify-between items-center px-5'>
                     
-                    <img src="/images/mac.jpg" class='slide  w-full object-fit'>
+                   <div class="flex flex-col justify-center items-center gap-2">
+                        <p class="text-center text-3xl font-bold w-[300px]">Make the Switch Today</p>
+                          <p class="text-center mt-10">{{$small3->price}}€</p>
+                       <button class="cursor-pointer p-5 bg-black text-center text-white">Buy Now</button>
+                    </div>
+                    <img src="{{ $small3->image }}" class='slide  w-[300px] h-[300px] object-contain'>
                    
                 
-                </div>
-                 <div class='  bg-green-200  items-center justify-center'>
+                </div></a>
+
+               <a href="/mac" ><div class='flex bg-white  border border-gray-300 hover:border-black  rounded-sm w-[1000px] h-[500px]  justify-between items-center px-5'>
                     
-                    <img src="/images/mac.jpg" class='slide  w-full object-fit'>
+                     <div class="flex flex-col justify-center items-center gap-2">
+                        <p class="text-center text-3xl font-bold w-[300px]">Engineered for Excellence</p>
+                          <p class="text-center mt-10">{{$small4->price}}€</p>
+                       <button class="cursor-pointer p-5 bg-black text-center text-white">Buy Now</button>
+                    </div>
+                    <img src="{{ $small4->image }}" class='slide  w-[300px] h-[300px] object-contain'>
                    
                 
-                </div>
+                </div></a>
+            </div> 
+           
+
+            <div class='flex flex-col justify-center items-center gap-2'>
+                
+                <a href="/iphone" ><div class='flex bg-white  border border-gray-300 hover:border-black  rounded-sm  w-[1000px] h-[500px]  justify-between items-center px-5'>
+                    
+                     <div class="flex flex-col justify-center items-center gap-2">
+                        <p class="text-center text-3xl font-bold w-[300px]">Meet the Future.</p>
+                          <p class="text-center mt-10">{{$small5->price}}€</p>
+                       <button class="cursor-pointer p-5 bg-black text-center text-white">Buy Now</button>
+                    </div>
+                    <img src="{{ $small5->image }}" class='slide  w-[300px] h-[300px] object-contain'>
+                   
+                
+                </div></a>
+
+              <a href="/mac" ><div class='flex bg-white  border border-gray-300 hover:border-black  rounded-sm  w-[1000px] h-[500px]  justify-between items-center px-5'>
+                    
+                     <div class="flex flex-col justify-center items-center gap-2">
+                        <p class="text-center text-3xl font-bold w-[300px]">Performance Without Limits</p>
+                          <p class="text-center mt-10">{{$small5->price}}€</p>
+                       <button class="cursor-pointer p-5 bg-black text-center text-white">Buy Now</button>
+                    </div>
+                    <img src="{{ $small6->image }}" class='slide  w-[300px] h-[300px] object-contain'>
+                   
+                
+                </div></a>
             </div>
-            <div class='flex flex-col justify-center items-center gap-y-2'>
-                <div class='  bg-green-200  items-center justify-center'>
-                    
-                    <img src="/images/mac.jpg" class='slide  w-full object-fit'>
-                   
-                
-                </div>
-                 <div class='  bg-green-200  items-center justify-center'>
-                    
-                    <img src="/images/mac.jpg" class='slide  w-full object-fit'>
-                   
-                
-                </div>
-            </div>
+
             
     </div>
-      <div class='flex mt-10 justify-center items-center'><p class='text-black text-center'> Most Popular Iphones </p></div>
+       <div class='flex mb-10 mt-30 justify-center items-center'><p class='text-black text-4xl text-center'> Most Popular Iphones </p>  </div>
             
-           <div class='flex relative text-black w-full bg-white items-center  gap-y-5 gap-x-5 mb-40 '>
-              <button class='absolute left-0 top-1/2 -translate-y-1/2 z-10  flex-shrink-0 Iback text-bold ml-5 text-2xl'> < </button>
-            <div  class='iphone-scroll flex overflow-x-auto gap-5 flex-1'>          
+           <div class='flex relative text-black w-full bg-white items-center  gap-y-5 gap-x-5  mb-40 '>
+              <button class='absolute -left-20 top-1/2 text-blue-600 text-4xl -translate-y-1/2 z-10  flex-shrink-0 Iback text-bold ml-5 text-2xl'> < </button>
+            <div  class='iphone-scroll bg-gray-100  flex overflow-x-auto gap-5 scrollbar-thin scrollbar-track-gray-100 scrollbar-thumb-gray-500  flex-1'>    
+   
+      
                 @foreach($iphones as $iphone)
                 
                     <div class='a h-full w-[500px] overflow-hidden   border border-gray-300 hover:border-black  rounded-sm flex flex-col items-center p-5  shadow-md flex-shrink-0 '>
@@ -130,7 +181,7 @@
                                 <p class='screenSize text-md text-center'>{{$iphone->screenSize}}</p> 
                             </div>
                   
-                            <div>
+                            <div class="mb-5 ">
                                 <p class='status text-md text-center' style='color: {{$iphone->arYra ? "green" : "red"}}'>{{$iphone->arYra ? 'Yes':'No'}}</p>
                                 <p class='price text-lg text-center'>{{$iphone->price}} €</p>
                             </div>  
@@ -142,11 +193,11 @@
                                 @csrf
                               
                                 <input class='counter w-10 text-center outline-none ' type='hidden' name="kiekis" value='1'>
-                                <button type='submit' class='add bg-black hover:bg-blue-600 transition-colors duration-300 pl-8 pr-8 pt-5 pb-5 rounded-sm text-white'>
+                                <button type='submit' class='add cursor-pointer bg-black hover:bg-blue-600 transition-colors duration-300 pl-8 pr-8 pt-5 pb-5 rounded-sm text-white'>
                                     <span class="material-symbols-outlined ">shopping_cart</span>
                                 </button>
                                 @else
-                                <a class='inline-block bg-black hover:bg-blue-600 transition-colors duration-300 pl-8 pr-8 pt-5 pb-5 rounded-sm text-white ' href='/iphone/{{$iphone->name}}'>View</a>
+                                <a class='inline-block cursor-pointer bg-black hover:bg-blue-600 transition-colors duration-300 pl-8 pr-8 pt-5 pb-5 rounded-sm text-white ' href='/iphone/{{$iphone->name}}'>View</a>
     
                                
                                 @endif
@@ -156,21 +207,21 @@
                 </div> 
               @endforeach
             </div>
-             <button class='absolute right-0 top-1/2 -translate-y-1/2 z-10  flex-shrink-0 Inext text-bold mr-5 text-2xl'> > </button>
+             <button class='absolute -right-20 text-blue-600 text-4xl top-1/2 -translate-y-1/2 z-10  flex-shrink-0 Inext text-bold mr-5 text-2xl'> > </button>
             </div> 
 
-            <div class='flex mt-10 justify-center items-center'><p class='text-black text-center'> Most Popular Iphones </p>  </div>
+            <div class='flex mb-10 justify-center items-center'><p class='text-black text-4xl text-center'> Most Popular Macbooks </p>  </div>
           
-        <div class='flex bg-white relative w-full  text-black gap-y-5 gap-x-5 mb-40  items-center'>
+        <div class='flex bg-white relative w-full  text-black gap-y-5 gap-x-5 mb-40   items-center'>
             
-                    <button class='absolute left-0 top-1/2 -translate-y-1/2 z-10  flex-shrink-0 Mback text-bold ml-5 text-2xl'> < </button>
+                    <button class='absolute -left-20 top-1/2 text-blue-600 text-4xl -translate-y-1/2 z-10  flex-shrink-0 Mback text-bold ml-5 text-2xl'> < </button>
 
-             <div class='mac-scroll flex overflow-x-auto gap-5 flex-1'>  
+             <div class='mac-scroll flex overflow-x-auto gap-5  scrollbar-thin scrollbar-track-gray-100 scrollbar-thumb-gray-500 bg-gray-100  flex-1'>  
            
           
             @foreach($macbook as $mac)
                   
-                    <div class='a h-full w-[500px] overflow-hidden border border-gray-300 hover:border-black  rounded-sm flex flex-col items-center p-5 shadow-md flex-shrink-0 '>
+                    <div class='a h-full w-[500px] overflow-hidden border bg-gray-100  border-gray-300 hover:border-black  rounded-sm flex flex-col items-center p-5 shadow-md flex-shrink-0 '>
                     <a href='/mac/{{$mac->name}}'>
                         <img  class='h-[200px] w-[200px] 'src="{{$mac->image}}">
                     </a>
@@ -185,7 +236,7 @@
                                 <p class='gpu text-md text-center'>{{$mac->gpu}}</p> 
                                 <p class='ram text-md text-center'>{{$mac->ram}}</p>
                             </div>
-                            <div>
+                            <div class="mb-5 ">
                                 <p class='status text-md text-center mt-5' style='color: {{$mac->arYra ? "green" : "red"}}'>{{$mac->arYra ? 'Yes':'No'}}</p>
                                 <p class='price text-lg text-center'>{{$mac->price}} €</p>
                             </div>
@@ -196,11 +247,11 @@
                                 @csrf
                               
                                 <input class='counter w-10 text-center outline-none ' type='hidden' name="kiekis" value='1'>
-                                <button type='submit' class='add bg-black hover:bg-blue-600 transition-colors duration-300 pl-8 pr-8 pt-5 pb-5 rounded-sm text-white'>
+                                <button type='submit' class='add cursor-pointer bg-black hover:bg-blue-600 transition-colors duration-300 pl-8 pr-8 pt-5 pb-5 rounded-sm text-white'>
                                     <span class="material-symbols-outlined ">shopping_cart</span>
                                 </button>
                                 @else
-                                <a class='inline-block bg-black hover:bg-blue-600 transition-colors duration-300 pl-8 pr-8 pt-5 pb-5 rounded-sm text-white ' href='/mac/{{$mac->name}}'>View</a>
+                                <a class='inline-block cursor-pointer bg-black hover:bg-blue-600 transition-colors duration-300 pl-8 pr-8 pt-5 pb-5 rounded-sm text-white ' href='/mac/{{$mac->name}}'>View</a>
     
                                
                                 @endif
@@ -211,7 +262,7 @@
               @endforeach
                
             </div>
-               <button class='absolute right-0 top-1/2 -translate-y-1/2 z-10  flex-shrink-0 Mnext text-bold mr-5 text-2xl'> > </button>
+               <button class='absolute -right-20 top-1/2 text-4xl text-blue-600 -translate-y-1/2 z-10  flex-shrink-0 Mnext  mr-5 text-2xl'> > </button>
         </div>
     </main>
     

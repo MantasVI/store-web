@@ -58,7 +58,7 @@
                             <form method='POST' action="/cart/delete/{{$item['key']}}">
                                 @csrf
                                 @method('DELETE')
-                                <button type='submit' class=' transition-colors duration-300 hover:text-white hover:bg-black rounded-sm border pr-5 pl-5 pt-3 pb-3'>Remove</button>
+                                <button type='submit' class='cursor-pointer transition-colors duration-300 hover:text-white hover:bg-black rounded-sm border pr-5 pl-5 pt-3 pb-3'>Remove</button>
                             </form>
                         </td>
                     </tr>  @endforeach
@@ -75,8 +75,9 @@
                 <p class='mr-5'>Without Taxes: </p>
                 <p>{{$pvm}} €</p>
             </div>
-             <div  class="flex justify-center mt-20 ">
-                <button class="transition-colors duration-300 hover:text-white hover:bg-black rounded-sm w-fit p-5 border ">Checkout</button>
+             <div  class="flex justify-center mt-20  gap-2 ">
+                <a href="/mac" class="transition-colors cursor-pointer duration-300 hover:text-white hover:bg-black rounded-sm w-fit p-5 border ">Continue Shopping</a>
+                <button class="transition-colors cursor-pointer duration-300 hover:text-white hover:bg-black rounded-sm w-fit p-5 border ">Checkout</button>
             </div>
             
         </div>
@@ -92,6 +93,7 @@
                 <th class="p-5">Remove item</th>
             </tr>
         </table>
+        <a href="/mac" class="transition-colors cursor-pointer duration-300 hover:text-white hover:bg-black rounded-sm w-fit p-5 border ">Continue Shopping</a>
         @endif
         
    </div>

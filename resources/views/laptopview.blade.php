@@ -32,7 +32,8 @@
         </div>
     </header>
      <div class='flex justify-center items-center'>
-        <div class='flex justify-center rounded-lg items-center text-black  gap-10 border p-7 mt-20 mb-30 shadow-lg'>
+        <div class='flex relative justify-center rounded-lg items-center text-black  gap-10 border p-7 mt-20 mb-30 shadow-lg'>
+            <a class='absolute top-0 left-0 p-2 mt-5 ml-5 rounded-sm transition-colors duration-300 hover:bg-black hover:text-white border' href="/mac">Cancel</a>
             <img class='p-5 border rounded-lg  border-gray-300 mt-10' src='{{asset($macbook->image)}}'>
             <div class='flex flex-col gap-5 mt-20 text-2xl'>
                 <div >
@@ -59,13 +60,13 @@
                     <div class='mt-7  flex  gap-y-10'>
                         
                         <div class='flex  gap-5 border-1 rounded-sm w-fit'>
-                                <button type='button' class='remove pl-10 pr-10 pt-5 pb-5  text-black'>-</button>
+                                <button type='button' class='remove  cursor-pointer pl-10 pr-10 pt-5 pb-5  text-black'>-</button>
                                 <input class='counter w-10 text-center outline-none ' type='text' name="kiekis" value='1'>
-                                <button type="button" class='add pl-10 pr-10 pt-5 pb-5  text-black'>+</button> 
+                                <button type="button" class='add  cursor-pointer pl-10 pr-10 pt-5 pb-5  text-black'>+</button> 
                             
                         </div>
                         <div class='flex  gap-5 w-fit'>
-                        <button type="submit" class=' transition-colors duration-300  hover:bg-blue-600 ml-5 bg-black pl-10 pr-10 pt-5 pb-5 rounded-sm text-white'>Add to Cart</button>
+                        <button type="submit" class=' transition-colors duration-300  cursor-pointer hover:bg-blue-600 ml-5 bg-black pl-10 pr-10 pt-5 pb-5 rounded-sm text-white'>Add to Cart</button>
                         </div>
                     </div>
                 </form>

@@ -43,7 +43,7 @@
                     <p class='text-xl'>Kategorija</p>
                     @foreach($macbook->unique('kategorija')->sortByDesc('kategorija') as $mac)
                     <div class='flex items-center gap-2'>
-                    <input type='checkbox' class='checkbox-kategorija' value='{{$mac->kategorija}}'><label>{{$mac->kategorija}}  </label>     
+                  <label class=" cursor-pointer  cursor-pointer hover:text-blue-600"> <input type='checkbox' class=' cursor-pointer   checkbox-kategorija' value='{{$mac->kategorija}}'>{{$mac->kategorija}}  </label>     
                     </div>
                     @endforeach
                 </div>
@@ -52,15 +52,15 @@
                     <p class='text-xl'>Screen Size</p>
                     @foreach($macbook->whereNotNull('screenSize')->unique('screenSize')->sortByDesc('screenSize') as $mac)
                     <div class='flex items-center gap-2'>
-                    <input type='checkbox' class='checkbox-screenSize' value='{{$mac->screenSize}}' ><label>{{$mac->screenSize}}  </label>     
+                   <label class=" cursor-pointer hover:text-blue-600"><input type='checkbox' class='checkbox-screenSize  cursor-pointer' value='{{$mac->screenSize}}' > {{$mac->screenSize}}  </label>     
                     </div>
                     @endforeach
                 </div>
-                <div class='flex flex-col ml-5  mb-5 gap-y-5 '>
+                <div class='flex flex-col ml-5  mb-5 gap-y-5 '> 
                     <p class='text-xl'>Screen Type</p>
                     @foreach($macbook->whereNotNull('screenType')->unique('screenType')->sortByDesc('screenType') as $mac)
                     <div class='flex items-center gap-2'>
-                    <input type='checkbox' class='checkbox-screenType' value='{{$mac->screenType}}' ><label>{{$mac->screenType}}  </label>     
+                   <label class=" cursor-pointer hover:text-blue-600"> <input type='checkbox' class='checkbox-screenType  cursor-pointer' value='{{$mac->screenType}}' > {{$mac->screenType}}  </label>     
                     </div>
                     @endforeach
                 </div>
@@ -68,7 +68,7 @@
                     <p class='text-xl'>Cpu</p>
                     @foreach($macbook->unique('cpu')->sortByDesc('cpu') as $mac)
                     <div class='flex items-center gap-2'>
-                    <input type='checkbox' class='checkbox-cpu' value='{{$mac->cpu}}' ><label>{{$mac->cpu}}  </label>     
+                    <label class=" cursor-pointer hover:text-blue-600"><input type='checkbox' class='checkbox-cpu  cursor-pointer' value='{{$mac->cpu}}'> {{$mac->cpu}}  </label>     
                     </div>
                     @endforeach
                 </div>
@@ -76,7 +76,7 @@
                     <p class='text-xl'>Gpu</p>
                     @foreach($macbook->unique('gpu')->sortByDesc('gpu') as $mac)
                     <div class='flex items-center gap-2'>
-                    <input type='checkbox' class='checkbox-gpu' value='{{$mac->gpu}}' ><label>{{$mac->gpu}}  </label>     
+                   <label class=" cursor-pointer hover:text-blue-600"> <input type='checkbox' class='checkbox-gpu  cursor-pointer' value='{{$mac->gpu}}'> {{$mac->gpu}}  </label>     
                     </div>
                     @endforeach
                 </div>
@@ -84,7 +84,7 @@
                     <p class='text-xl'>Ram</p>
                     @foreach($macbook->unique('ram') as $mac)
                     <div class='flex items-center gap-2'>
-                    <input type='checkbox' class='checkbox-ram' value='{{$mac->ram}}'><label>{{$mac->ram}}  </label>     
+                    <label class=" cursor-pointer hover:text-blue-600"> <input type='checkbox' class='checkbox-ram  cursor-pointer' value='{{$mac->ram}}'> {{$mac->ram}}  </label>     
                     </div>
                     @endforeach
                 </div>
@@ -92,7 +92,7 @@
                     <p>Storage</p>
                     @foreach($macbook->unique('storage') as $mac)
                     <div class='flex items-center gap-2'>
-                    <input type='checkbox' class='checkbox-storage'  value='{{$mac->storage}}'> <label>{{$mac->storage}}  </label>     
+                    <label class=" cursor-pointer hover:text-blue-600"><input type='checkbox' class='checkbox-storage  cursor-pointer'  value='{{$mac->storage}}'> {{$mac->storage}}  </label>     
                     </div>
                     @endforeach
                 </div>
@@ -101,7 +101,7 @@
                     <p>Color</p>
                     @foreach($macbook->unique('color')->sortByDesc('color')   as $mac)
                     <div class='flex items-center gap-2'>
-                    <input type='checkbox' class='checkbox-color'  value='{{$mac->color}}' ><label>{{$mac->color}}  </label>     
+                    <label class=" cursor-pointer hover:text-blue-600"> <input type='checkbox' class='checkbox-color  cursor-pointer'  value='{{$mac->color}}' > {{$mac->color}}  </label>     
                     </div>
                     @endforeach
                 </div>
@@ -110,7 +110,7 @@
                     <p>In Storage</p>
                     @foreach($macbook->unique('arYra') as $mac)
                     <div class='flex items-center gap-2'>
-                    <input type='checkbox' class='checkbox-arYra'  value="{{$mac->arYra ? 'Yes' : 'No'}}"><label>{{$mac->arYra ? 'Yes' : 'No'}}  </label>     
+                    <label class=" cursor-pointer hover:text-blue-600"><input type='checkbox' class='checkbox-arYra  cursor-pointer'  value="{{$mac->arYra ? 'Yes' : 'No'}}">  {{$mac->arYra ? 'Yes' : 'No'}}  </label>     
                     </div>
                     @endforeach
                 </div>
@@ -130,14 +130,14 @@
             <hr class=" border ml-5 mt-5 mb-10 mr-5 border-black ">
 
             <div class='flex ml-5  gap-5 mb-5 items-center'>
-                <select class=' tipas p-2 border border-gray-300 hover:border-black rounded-sm outline-none shadow-md'>
+                <select class=' tipas  cursor-pointer p-2 border border-gray-300 hover:border-black rounded-sm outline-none shadow-md'>
                     <option value='Pigus'>Cheap</option>
                     <option value='Brangus'>Expensive</option>
                     <option value='default' selected>-</option>
                 </select>
             
 
-                <select class='quant p-2 border border-gray-300 hover:border-black  rounded-sm outline-none shadow-md'>
+                <select class='quant  cursor-pointer p-2 border border-gray-300 hover:border-black  rounded-sm outline-none shadow-md'>
                     <option value='12' >12</option>
                     <option value='24'>24</option>
                     <option value='36'>36</option>
@@ -175,11 +175,11 @@
                                 @csrf
                               
                                 <input class='counter w-10 text-center outline-none ' type='hidden' name="kiekis" value='1'>
-                                <button type='submit' class='add bg-black hover:bg-blue-600 transition-colors duration-300 pl-8 pr-8 pt-5 pb-5 rounded-sm text-white'>
+                                <button type='submit' class='add cursor-pointer bg-black hover:bg-blue-600 transition-colors duration-300 pl-8 pr-8 pt-5 pb-5 rounded-sm text-white'>
                                     <span class="material-symbols-outlined ">shopping_cart</span>
                                 </button>
                                 @else
-                                <a class='inline-block bg-black hover:bg-blue-600 transition-colors duration-300 pl-8 pr-8 pt-5 pb-5 rounded-sm text-white ' href='/mac/{{$mac->name}}'>View</a>
+                                <a class='inline-block cursor-pointer bg-black hover:bg-blue-600 transition-colors duration-300 pl-8 pr-8 pt-5 pb-5 rounded-sm text-white ' href='/mac/{{$mac->name}}'>View</a>
     
                                
                                 @endif

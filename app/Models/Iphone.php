@@ -35,9 +35,9 @@ class Iphone extends Model
     {
         return self::inRandomOrder()->limit(8)->get();
     }
-    public function getScreenSize($screenSize)
+    public static function getSingle()
     {
-        return self::find($screenSize);
+         return self::inRandomOrder()->first();
     }
     public function getStorage($storage)
     {

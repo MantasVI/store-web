@@ -47,13 +47,13 @@
                         <td class="p-10 text-center">{{ $product->name }}</td>
                         <td class="p-10 text-center">
                             <div class='border rounded-sm'>
-                                <button type='button' class='remove pl-10 pr-10 pt-5 pb-5  text-black'>-</button>
+                                <button type='button' class='remove cursor-pointer pl-10 pr-10 pt-5 pb-5  text-black'>-</button>
                                 <input class='counter text-center  w-[50px] h-[50px] outline-none ' type='text' name="kiekis" value='{{ $quantity}}'>
-                                <button type="button" class='add pl-10 pr-10 pt-5 pb-5  text-black'>+</button> 
+                                <button type="button" class='add cursor-pointer pl-10 pr-10 pt-5 pb-5  text-black'>+</button> 
                             </div>
                             </td>
                          <td class="p-10 text-center">
-                            <button type='submit' href="/cart/update/{{$key}}" class='rounded-sm border pr-5 pl-5 pt-3 pb-3 transition-colors duration-300 hover:text-white hover:bg-black'>Update</button>
+                            <button type='submit' href="/cart/update/{{$key}}" class='rounded-sm cursor-pointer border pr-5 pl-5 pt-3 pb-3 transition-colors duration-300 hover:text-white hover:bg-black'>Update</button>
                         </td>
                          <td class="p-10 text-center">
                             <a href="/cart" class=' rounded-sm border pr-5 pl-5 pt-3 pb-3 transition-colors duration-300 hover:text-white hover:bg-black'>Cancel</a>

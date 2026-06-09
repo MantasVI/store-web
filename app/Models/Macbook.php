@@ -28,9 +28,9 @@ class Macbook extends Model
     {
         return self::inRandomOrder()->limit(8)->get();
     }
-    public function getStorage($storage)
+     public static function getSingle()
     {
-        return self::find($storage);
+        return self::inRandomOrder()->first();
     }
     public function getColor($color)
     {

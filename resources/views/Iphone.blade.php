@@ -46,7 +46,7 @@
                     <p class='text-xl'>Kategorija</p>
                     @foreach($iphones->unique('kategorija')->sortByDesc('kategorija') as $iphone)
                     <div class='flex items-center gap-2'>
-                    <input type='checkbox' class='checkbox-kategorija' value='{{$iphone->kategorija}}'><label>{{$iphone->kategorija}}  </label>     
+                   <label class=" cursor-pointer hover:text-blue-600" > <input type='checkbox' class='cursor-pointer checkbox-kategorija' value='{{$iphone->kategorija}}'> {{$iphone->kategorija}}  </label class=" cursor-pointer hover:text-blue-600">     
                     </div>
                     @endforeach
                 </div>
@@ -54,7 +54,7 @@
                     <p>Screen Size</p>
                     @foreach($iphones->whereNotNull('screenSize')->unique('screenSize') as $iphone)
                     <div class='flex items-center gap-2'>
-                    <input type='checkbox' class='checkbox-screenSize'  value="{{$iphone->screenSize}}" ><label>{{$iphone->screenSize}}  </label>     
+                   <label class=" cursor-pointer hover:text-blue-600"> <input type='checkbox' class='cursor-pointer checkbox-screenSize'  value="{{$iphone->screenSize}}" > {{$iphone->screenSize}}  </label class=" cursor-pointer hover:text-blue-600">     
                     </div>
                     @endforeach
                 </div>
@@ -62,7 +62,7 @@
                     <p>Talpa</p>
                     @foreach($iphones->unique('storage') as $iphone)
                     <div class='flex items-center gap-2'>
-                    <input type='checkbox' class='checkbox-storage'  value='{{$iphone->storage}}'><label>{{$iphone->storage}}  </label>     
+                  <label class=" cursor-pointer hover:text-blue-600"> <input type='checkbox' class='cursor-pointer checkbox-storage'  value='{{$iphone->storage}}'> {{$iphone->storage}}  </label class=" cursor-pointer hover:text-blue-600">     
                     </div>
                     @endforeach
                 </div>
@@ -71,7 +71,7 @@
                     <p>Spalva</p>
                     @foreach($iphones->unique('color')   as $iphone)
                     <div class='flex items-center gap-2'>
-                    <input type='checkbox' class='checkbox-color'  value='{{$iphone->color}}'><label>{{$iphone->color}}  </label>     
+                   <label class=" cursor-pointer hover:text-blue-600"> <input type='checkbox' class='cursor-pointer checkbox-color'  value='{{$iphone->color}}'> {{$iphone->color}} </label class=" cursor-pointer hover:text-blue-600">     
                     </div>
                     @endforeach
                 </div>
@@ -80,7 +80,7 @@
                     <p>Sandelyje</p>
                     @foreach($iphones->unique('arYra') as $iphone)
                     <div class='flex items-center gap-2'>
-                    <input type='checkbox' class='checkbox-arYra'  value="{{$iphone->arYra ? 'Yes' : 'No'}}" ><label>{{$iphone->arYra ? 'Taip' : 'Ne'}}  </label>     
+                 <label class=" cursor-pointer hover:text-blue-600">   <input type='checkbox' class='cursor-pointer checkbox-arYra'  value="{{$iphone->arYra ? 'Yes' : 'No'}}" > {{$iphone->arYra ? 'Taip' : 'Ne'}} </label class=" cursor-pointer hover:text-blue-600">     
                     </div>
                     @endforeach
                 </div>
@@ -100,14 +100,14 @@
             <hr class=" border ml-5 mt-5 mb-10 mr-5 border-black ">
 
             <div class='flex ml-5  gap-5 mb-5 items-center'>
-                <select class='tipas p-2 border border-gray-300 hover:border-black rounded-sm outline-none shadow-md'>
+                <select class='tipas cursor-pointer p-2 border border-gray-300 hover:border-black rounded-sm outline-none shadow-md'>
                     <option value='Pigus'>Pigiausi</option>
                     <option value='Brangus'>Brangiausi</option>
                     <option value='default' selected>-</option>
                 </select>
             
 
-                <select class='quant p-2 border border-gray-300 hover:border-black  rounded-sm outline-none shadow-md'>
+                <select class='quant cursor-pointer p-2 border border-gray-300 hover:border-black  rounded-sm outline-none shadow-md'>
                     <option value='12' >12</option>
                     <option value='24'>24</option>
                     <option value='36'>36</option>
@@ -143,11 +143,11 @@
                                 @csrf
                               
                                 <input class='counter w-10 text-center outline-none ' type='hidden' name="kiekis" value='1'>
-                                <button type='submit' class='add bg-black hover:bg-blue-600 transition-colors duration-300 pl-8 pr-8 pt-5 pb-5 rounded-sm text-white'>
+                                <button type='submit' class='add cursor-pointer bg-black hover:bg-blue-600 transition-colors duration-300 pl-8 pr-8 pt-5 pb-5 rounded-sm text-white'>
                                     <span class="material-symbols-outlined ">shopping_cart</span>
                                 </button>
                                 @else
-                                <a class='inline-block bg-black hover:bg-blue-600 transition-colors duration-300 pl-8 pr-8 pt-5 pb-5 rounded-sm text-white ' href='/iphone/{{$iphone->name}}'>View</a>
+                                <a class='inline-block cursor-pointer bg-black hover:bg-blue-600 transition-colors duration-300 pl-8 pr-8 pt-5 pb-5 rounded-sm text-white ' href='/iphone/{{$iphone->name}}'>View</a>
     
                                
                                 @endif

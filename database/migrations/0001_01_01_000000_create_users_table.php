@@ -50,6 +50,25 @@ return new class extends Migration
             $table->timestamps();
         });
 
+        Schema::create('orders', function (Blueprint $table) {
+            $table->id();
+            $table->foreignId('user_id')->constrained()->onDelete('cascade');
+            $table->decimal('total', 10, 2);
+            $table->string('status')->default('pending');
+            $table->timestamps();
+        });
+
+        // order_items table
+        Schema::create('order_items', function (Blueprint $table) {
+            $table->id();
+            $table->foreignId('order_id')->constrained()->onDelete('cascade');
+            $table->string('type'); // 'iphone' or 'mac'
+            $table->unsignedBigInteger('product_id');
+            $table->integer('kiekis');
+            $table->decimal('price', 10, 2);
+            $table->timestamps();
+        });
+
         Schema::create('password_reset_tokens', function (Blueprint $table) {
             $table->string('email')->primary();
             $table->string('token');
