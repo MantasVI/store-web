@@ -1,59 +1,271 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
+# Store Web
 
-<p align="center">
-<a href="https://github.com/laravel/framework/actions"><img src="https://github.com/laravel/framework/workflows/tests/badge.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
-</p>
+Laravel 12 pagrindu sukurta elektroninės prekybos sistema, skirta Apple produktų (iPhone ir MacBook) katalogui, krepšeliui bei užsakymų valdymui.
 
-## About Laravel
+## Funkcionalumas
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+* iPhone produktų katalogas
+* MacBook produktų katalogas
+* Atskirų produktų peržiūra
+* Pirkinių krepšelis
+* Kiekio redagavimas krepšelyje
+* Produktų šalinimas iš krepšelio
+* Registracija ir prisijungimas
+* Užsakymų pateikimas
+* Užsakymų istorijos peržiūra
+* Session pagrindu veikiantis krepšelis
+* Laravel Eloquent modeliai ir migracijos
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+## Naudotos technologijos
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+### Backend
 
-## Learning Laravel
+* PHP 8.2+
+* Laravel 12
+* Eloquent ORM
+* SQLite / MySQL
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework. You can also check out [Laravel Learn](https://laravel.com/learn), where you will be guided through building a modern Laravel application.
+### Frontend
 
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains thousands of video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+* Blade Templates
+* Vite
+* Tailwind CSS 4
+* JavaScript
 
-## Laravel Sponsors
+## Projekto struktūra
 
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the [Laravel Partners program](https://partners.laravel.com).
+```text
+app/
+├── Http/
+│   └── Controllers/
+│       ├── AuthController.php
+│       ├── CartController.php
+│       ├── HomeController.php
+│       ├── IphoneController.php
+│       └── MacController.php
+│
+├── Models/
+│   ├── Iphone.php
+│   ├── Macbook.php
+│   ├── Order.php
+│   ├── OrderItem.php
+│   └── User.php
 
-### Premium Partners
+database/
+├── migrations/
+└── seeders/
 
-- **[Vehikl](https://vehikl.com)**
-- **[Tighten Co.](https://tighten.co)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Curotec](https://www.curotec.com/services/technologies/laravel)**
-- **[DevSquad](https://devsquad.com/hire-laravel-developers)**
-- **[Redberry](https://redberry.international/laravel-development)**
-- **[Active Logic](https://activelogic.com)**
+resources/
+├── views/
+├── css/
+└── js/
 
-## Contributing
+routes/
+└── web.php
+```
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
+## Sistemos reikalavimai
 
-## Code of Conduct
+* PHP >= 8.2
+* Composer
+* Node.js >= 20
+* npm
+* SQLite arba MySQL
 
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
+## Diegimas
 
-## Security Vulnerabilities
+### 1. Klonuoti projektą
 
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
+```bash
+git clone https://github.com/MantasVI/store-web.git
+cd store-web
+```
 
-## License
+### 2. Įdiegti PHP priklausomybes
 
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+```bash
+composer install
+```
+
+### 3. Įdiegti JavaScript paketus
+
+```bash
+npm install
+```
+
+### 4. Sukurti .env failą
+
+```bash
+cp .env.example .env
+```
+
+### 5. Sugeneruoti aplikacijos raktą
+
+```bash
+php artisan key:generate
+```
+
+### 6. Sukurti duomenų bazę
+
+SQLite atveju:
+
+```bash
+touch database/database.sqlite
+```
+
+`.env` faile:
+
+```env
+DB_CONNECTION=sqlite
+```
+
+### 7. Paleisti migracijas ir seederius
+
+```bash
+php artisan migrate:fresh --seed
+```
+
+Seederiai automatiškai:
+
+* sukuria testinį vartotoją
+* užpildo iPhone produktus
+* užpildo MacBook produktus
+
+## Testinis vartotojas
+
+Po seederių paleidimo:
+
+```text
+Email: test@example.com
+Password: lopas1234
+```
+
+## Projekto paleidimas
+
+### Laravel serveris
+
+```bash
+php artisan serve
+```
+
+### Vite
+
+Atskirame terminale:
+
+```bash
+npm run dev
+```
+
+Aplikacija bus pasiekiama:
+
+```text
+http://127.0.0.1:8000
+```
+
+## Pagrindiniai maršrutai
+
+### Bendri puslapiai
+
+| Route   | Aprašymas            |
+| ------- | -------------------- |
+| /home   | Pagrindinis puslapis |
+| /iphone | iPhone katalogas     |
+| /mac    | MacBook katalogas    |
+
+### Produktų peržiūra
+
+| Route          |
+| -------------- |
+| /iphone/{name} |
+| /mac/{name}    |
+
+### Krepšelis
+
+| Route                      | Veiksmas           |
+| -------------------------- | ------------------ |
+| GET /cart                  | Peržiūra           |
+| POST /cart/add/{type}/{id} | Pridėti produktą   |
+| GET /cart/edit/{id}        | Redaguoti kiekį    |
+| PUT /cart/update/{id}      | Atnaujinti kiekį   |
+| DELETE /cart/delete/{id}   | Pašalinti produktą |
+
+### Autentifikacija
+
+| Route   |
+| ------- |
+| /signup |
+| /login  |
+| /logout |
+
+### Užsakymai
+
+| Route     |
+| --------- |
+| /checkout |
+| /orders   |
+
+## Duomenų modeliai
+
+### Iphone
+
+Saugo:
+
+* pavadinimą
+* nuotrauką
+* kategoriją
+* ekrano dydį
+* atmintį
+* spalvą
+* kainą
+* prieinamumą
+
+### Macbook
+
+Saugo:
+
+* pavadinimą
+* ekraną
+* procesorių
+* vaizdo plokštę
+* RAM
+* atmintį
+* spalvą
+* kainą
+* prieinamumą
+
+### Order
+
+Saugo:
+
+* vartotojo ID
+* bendrą sumą
+* būseną
+
+### OrderItem
+
+Saugo:
+
+* produkto tipą
+* produkto ID
+* kiekį
+* kainą
+
+## Kaip veikia užsakymo procesas
+
+1. Vartotojas prideda produktus į krepšelį.
+2. Produktai saugomi Laravel Session.
+3. Paspaudus Checkout:
+
+   * sukuriamas Order įrašas;
+   * sukuriami OrderItem įrašai;
+   * apskaičiuojama bendra suma;
+   * išvalomas krepšelis.
+4. Užsakymai matomi `/orders` puslapyje.
+
+## Autorius
+
+Mantas Visakavičius
+
+Vilniaus Universitetas
+
+Laravel internetinės parduotuvės projektas.
