@@ -7,7 +7,10 @@ use App\Http\Controllers\IphoneController;
 use App\Http\Controllers\CartController;
 use App\Http\Controllers\HomeController;
 
-Route::get('/', [HomeController::class,'index']);
+Route::get('/', function () {
+    return redirect('/home');
+});
+Route::get('/home', [HomeController::class,'index']);
 
 Route::get('/mac', [MacController::class,'index']);
 Route::get('/iphone',[IphoneController::class,'index']);  
@@ -24,10 +27,12 @@ Route::put('/cart/update/{id}',[CartController::class,'update']);
 
 
 Route::get('/signup',[AuthController::class,'signup']);
-
 Route::post('/signup',[AuthController::class,'insertas']);
-
-
 Route::get('/login',[AuthController::class,'loginas']);
-
 Route::post('/login',[AuthController::class,'checkas']);
+Route::get('/logout',[AuthController::class,'logout']);
+Route::get('/orders', [CartController::class, 'orders'])->middleware('auth');
+
+
+Route::post('/checkout', [CartController::class, 'checkout']);
+;

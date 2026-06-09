@@ -62,6 +62,7 @@ return new class extends Migration
         Schema::create('order_items', function (Blueprint $table) {
             $table->id();
             $table->foreignId('order_id')->constrained()->onDelete('cascade');
+             $table->string('name');
             $table->string('type'); // 'iphone' or 'mac'
             $table->unsignedBigInteger('product_id');
             $table->integer('kiekis');

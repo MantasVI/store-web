@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Order;
+use App\Models\OrderItem;
 use App\Models\Iphone;
 use App\Models\Macbook;
 use App\Http\Controllers\Controller;
@@ -84,20 +86,52 @@ class CartController extends Controller
             }
              return view('edit',['product' => $product, 'key' => $id , 'quantity' => $cartItem['quantity'] ]);
     }
+    public function checkout()
+    {
 
-    /**
-     * Display the specified resource.
-     */
+    $cart = session('cart', []);
+
+    if (empty($cart)) {
+        return redirect('/cart');
+    }
+
+    if(auth()->check())
+    {
+       
+         $total = 0;
+        $order = Order::create([
+        'user_id' => auth()->id(),
+        'total'   => $total,
+        'status'  => 'pending',
+        ]);
+       
+        foreach ($cart as $key => $item) {
+        // your cart key is like 'iphone_2' or 'mac_3'
+            [$type, $id] = explode('_', $key);
+            $product = $type === 'iphone' ? Iphone::getId($id) : Macbook::getId($id);    
+
+            $total += $item['quantity'] * $product->price;
+
+            OrderItem::create([
+                'order_id'   => $order->id,
+                'type'       => $type,
+                'product_id' => $id,
+                'name' => $product->name,
+                'kiekis'     => $item['quantity'],
+                'price'      => $product->price,
+            ]);
+    }
+        $order->update(['total' => $total]);
+    }
+    
+
+    session()->forget('cart');
+
+    return view('thankyou');
+
+
+    }
    
-
-    /**
-     * Show the form for editing the specified resource.
-     */
-
-
-    /**
-     * Update the specified resource in storage.
-     */
     public function update(Request $request,  $id)
     {  
         $request->validate(['kiekis' => 'integer']);
@@ -112,15 +146,16 @@ class CartController extends Controller
             
              session()->put('cart',$cart);
 
-            return redirect('cart');
+            return redirect('/cart');
 
     }
 
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(c $c)
+    public function orders()
     {
-        //
+        $orders = Order::getOrders();
+        return view('orders',['orders' => $orders]);
     }
 }

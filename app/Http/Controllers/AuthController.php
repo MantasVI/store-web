@@ -56,7 +56,7 @@ class AuthController extends Controller
             {
                  $request->session()->regenerate();
                  
-                return view('home');
+                return redirect('/');
             }
         else
             {
@@ -64,6 +64,11 @@ class AuthController extends Controller
             }
 
 
+    }
+    public function logout()
+    {
+         Auth::logout();
+        return redirect('/login');
     }
 
 

@@ -11,7 +11,7 @@
 <body class='italic text-white font-bold relative  '>
     <header class='flex justify-between items-center bg-[#292323] p-5'> 
         <div class=''>
-            <a class='hover:text-blue-400 transition-transform duration-300' href='/'>icon</a>
+            <a class='hover:text-blue-400 transition-transform duration-300' href='/home'>icon</a>
         </div>
         <div class=''>
             <a class='mr-5 hover:text-blue-400 transition-transform duration-300' href='/mac'>mac</a>
@@ -22,7 +22,7 @@
             <a class='mr-5 hover:text-blue-400 transition-transform duration-300' href='/login'>login</a>
             @endguest
             @auth
-              <span class="material-symbols-outlined mr-5 hover:text-blue-400 transition-transform duration-300">account_circle</span>
+             <a href='/orders'> <span class="material-symbols-outlined mr-5 hover:text-blue-400 transition-transform duration-300">account_circle</span></a>
 
 
             @endauth
@@ -32,25 +32,7 @@
         </div>
     </header>
     <main class='flex flex-col justify-center items-center min-h-screen bg-gray-100 p-4 pr-30 pl-30'>
-    <div class='flex flex-col  justify-center rounded-lg shadow-lg overflow-hidden  w-full max-w-4xl'>
-        
-        <div class='relative'>
-            <img src="/images/mac.jpg" class='slide h-64 w-full object-cover'>
-            <img src="/images/mac.jpg" class='slide h-64 w-full object-cover hidden'>
-            <img src="/images/mac.jpg" class='slide h-64 w-full object-cover hidden'>
-        </div>
 
-        <div class='flex justify-center mt-4 gap-2'>
-            <button class='dot bg-black rounded-full h-4 w-4'></button>
-            <button class='dot bg-gray-300 rounded-full h-4 w-4'></button>
-            <button class='dot bg-gray-300 rounded-full h-4 w-4'></button>
-        </div>
-
-        <div class='flex justify-between mt-4 px-4'>
-            <button  class='prev bg-gray-300 rounded-full p-2'>Prev</button>
-            <button  class='next bg-gray-300 rounded-full p-2'>Next</button>
-        </div>
-    </div>
     
     
     <div class='flex  mt-20  items-stretch justify-center gap-x-2 text-black'>
