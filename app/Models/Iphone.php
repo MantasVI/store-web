@@ -39,25 +39,5 @@ class Iphone extends Model
     {
          return self::inRandomOrder()->first();
     }
-    public function getStorage($storage)
-    {
-        return self::find($storage);
-    }
-    public function getColor($color)
-    {
-        return self::find($color);
-    }
-    public function getPrice($price)
-    {
-        return self::find($price);
-    }
-    public function getOldPrice($oldprice)
-    {
-        return self::find($oldprice);
-    }
-    public function getArYra($arYra)
-    {
-        return self::find($arYra);
-    }
-   
+  
 }
